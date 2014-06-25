@@ -32,9 +32,6 @@
 
 			//Connectamos a la base de datos
 			$this->conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE) or die("Error ".mysqli_error());
-
-			//Regresamos el cursor de la conexion
-			return $this->conn;
 		}
 
 		function close()
