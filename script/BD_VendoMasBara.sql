@@ -3,18 +3,18 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema VendoMasBarato
+-- Schema VendoMasBara
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `VendoMasBarato` ;
-CREATE SCHEMA IF NOT EXISTS `VendoMasBarato` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `VendoMasBarato` ;
+DROP SCHEMA IF EXISTS `VendoMasBara` ;
+CREATE SCHEMA IF NOT EXISTS `VendoMasBara` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `VendoMasBara` ;
 
 -- -----------------------------------------------------
--- Table `VendoMasBarato`.`Usuario`
+-- Table `VendoMasBara`.`Usuario`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `VendoMasBarato`.`Usuario` ;
+DROP TABLE IF EXISTS `VendoMasBara`.`Usuario` ;
 
-CREATE TABLE IF NOT EXISTS `VendoMasBarato`.`Usuario` (
+CREATE TABLE IF NOT EXISTS `VendoMasBara`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `Nombre` VARCHAR(25) NOT NULL,
   `Apellidos` VARCHAR(35) NOT NULL,
@@ -28,11 +28,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `VendoMasBarato`.`Categoria`
+-- Table `VendoMasBara`.`Categoria`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `VendoMasBarato`.`Categoria` ;
+DROP TABLE IF EXISTS `VendoMasBara`.`Categoria` ;
 
-CREATE TABLE IF NOT EXISTS `VendoMasBarato`.`Categoria` (
+CREATE TABLE IF NOT EXISTS `VendoMasBara`.`Categoria` (
   `idCategoria` INT NOT NULL AUTO_INCREMENT,
   `Nombre_Categoria` VARCHAR(25) NOT NULL,
   `Descripcion` TEXT NOT NULL,
@@ -43,11 +43,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `VendoMasBarato`.`Publicacion`
+-- Table `VendoMasBara`.`Publicacion`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `VendoMasBarato`.`Publicacion` ;
+DROP TABLE IF EXISTS `VendoMasBara`.`Publicacion` ;
 
-CREATE TABLE IF NOT EXISTS `VendoMasBarato`.`Publicacion` (
+CREATE TABLE IF NOT EXISTS `VendoMasBara`.`Publicacion` (
   `idPublicacion` INT NOT NULL AUTO_INCREMENT,
   `Titulo` VARCHAR(25) NOT NULL,
   `Precio` INT NOT NULL,
@@ -61,12 +61,12 @@ CREATE TABLE IF NOT EXISTS `VendoMasBarato`.`Publicacion` (
   INDEX `fk_Publicacion_Usuario1_idx` (`Usuario_idUsuario` ASC),
   CONSTRAINT `fk_Publicacion_Categoria`
     FOREIGN KEY (`Categoria_idCategoria`)
-    REFERENCES `VendoMasBarato`.`Categoria` (`idCategoria`)
+    REFERENCES `VendoMasBara`.`Categoria` (`idCategoria`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Publicacion_Usuario1`
     FOREIGN KEY (`Usuario_idUsuario`)
-    REFERENCES `VendoMasBarato`.`Usuario` (`idUsuario`)
+    REFERENCES `VendoMasBara`.`Usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
