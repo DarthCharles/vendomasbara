@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 
-	$('#submit').click(function(){
+	$('#bpublicar').click(function(){
 		validation = validate();
 
 		if (validation == 1) {
