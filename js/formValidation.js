@@ -25,7 +25,7 @@ function vName() {
 
 	if (document.getElementById("name").value == "") {
 		document.getElementById("errMes").innerHTML =
-		"This field is required";
+		"Por favor llene ese campo";
 		return 0;
 	} else { 
 		document.getElementById("errMes").innerHTML =
@@ -42,7 +42,7 @@ function vName() {
 			var dotpos = x.lastIndexOf(".");
 			if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
 				document.getElementById("errMes2").innerHTML =
-				"Please enter a valid email adress";
+				"Por favor ingrese un correo válido";
 				return 0;
 			}else { 
 				document.getElementById("errMes2").innerHTML =
@@ -56,7 +56,7 @@ function vName() {
 
 			if (document.getElementById("message").value == "") {
 				document.getElementById("errMes3").innerHTML =
-				"This field is required";
+				"Por favor llene este campo";
 				return 0;
 			}else { 
 				document.getElementById("errMes3").innerHTML =

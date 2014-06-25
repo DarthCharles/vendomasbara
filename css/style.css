@@ -14,7 +14,7 @@ p{
 
 h1,h2,h3,h4{
   color: #ffffff;
- margin: 10px;
+  margin: 10px;
   padding: 0;
   font-weight: bold;
 }
@@ -82,15 +82,15 @@ h1,h2,h3,h4{
   background-color: #6414A2;
 }
 .left-inner-addon {
-    position: relative;
+  position: relative;
 }
 .left-inner-addon input {
-    padding-left: 30px;    
+  padding-left: 30px;    
 }
 .left-inner-addon i {
-    position: absolute;
-    padding: 10px 12px;
-    pointer-events: none;
+  position: absolute;
+  padding: 10px 12px;
+  pointer-events: none;
 }
 
 /*
@@ -123,7 +123,7 @@ h1,h2,h3,h4{
  border:2px solid;
  border-radius:25px;
 
-/*box-shadow: 2px 2px 5px #000000;*/
+ /*box-shadow: 2px 2px 5px #000000;*/
 }
 
 .container label{
@@ -152,8 +152,11 @@ h1,h2,h3,h4{
 }
 
 
-#titulo{
-
+.mailForm span{
+  margin-left: 10px; 
+  font-size: 12px;
+  font-weight: bold;
+  color: #DC143C;
 }
 
 .btn-custom {
@@ -180,6 +183,9 @@ fieldset[disabled] .btn-custom:hover,
 fieldset[disabled] .btn-custom:focus,
 fieldset[disabled] .btn-custom:active,
 fieldset[disabled] .btn-custom.active {
+  color: #ffffff;
+  
   background-color: #6414A2;
   border-color: #6414A2;
+
 }
