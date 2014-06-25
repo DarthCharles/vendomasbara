@@ -184,7 +184,6 @@ fieldset[disabled] .btn-custom:hover,
 fieldset[disabled] .btn-custom:focus,
 fieldset[disabled] .btn-custom:active,
 fieldset[disabled] .btn-custom.active {
-  color: #ffffff;
 
   background-color: #6414A2;
   border-color: #6414A2;
