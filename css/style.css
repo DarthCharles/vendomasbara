@@ -160,7 +160,7 @@ h1,h2,h3,h4{
 }
 
 .btn-custom {
-  color: #ffffff;
+  color: #fff;
   background-color: #6414A2;
   border-color: #6414A2;
 }
@@ -168,6 +168,7 @@ h1,h2,h3,h4{
 .btn-custom:focus,
 .btn-custom:active,
 .btn-custom.active {
+    color: #fff;
   background-color: #56118b;
   border-color: #480e75;
 }
@@ -184,7 +185,7 @@ fieldset[disabled] .btn-custom:focus,
 fieldset[disabled] .btn-custom:active,
 fieldset[disabled] .btn-custom.active {
   color: #ffffff;
-  
+
   background-color: #6414A2;
   border-color: #6414A2;
 
