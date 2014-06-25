@@ -11,7 +11,7 @@ $subject = "Request";
 $message ="From: ". $_POST["email"]."\n". 
 "Name: ".$_POST["name"]."\n".
 "Message: ".$_POST["message"]."\n";
-$headers = 'From: info@hablame.com';
+$headers = 'From: vendedor@vendomasbara.com';
 // this line checks that we have a valid email address
  $mailres = mail($to, $subject, $message, $headers); //This method sends the mail.
 
