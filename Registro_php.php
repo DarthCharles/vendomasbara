@@ -67,7 +67,12 @@ if (isset($_POST['enviar'])) {
 	<div class="container-fluid">
 		<div class="row">
 			<div class="container">
-			<p class="lead"><?php echo $respuesta ?></p>
+			<div class="col-md-6">
+				<p class="lead"><?php echo $respuesta ?></p>
+			</div>
+			<div>
+				<img src="img/logo2.png" alt="">
+			</div>
 				
 			</div>
 		</div>
