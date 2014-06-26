@@ -44,31 +44,34 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="container">
-			<h3>Registro de Usuario</h3>
+				<h3>Registro de Usuario</h3>
 				<form method="POST" action="Registro_php.php">
-					<label>Usuario:</label>
-					<input type="text" name="usuario"  class="form-control" ></br>
+					<div class="col-md-6">
+						<label>Usuario:</label>
+						<input type="text" name="usuario"  class="form-control" ></br>
 
-					<label>Clave:</label>
-					<input type="password" name="password"  class="form-control" ></br>
+						<label>Clave:</label>
+						<input type="password" name="password"  class="form-control" ></br>
 
-					<label>Repetir Clave:</label>
-					<input type="password" name="reppassword"  class="form-control" ></br>
+						<label>Repetir Clave:</label>
+						<input type="password" name="reppassword"  class="form-control" ></br>
+					</div>
+					<div class="col-md-6">
+						<label>Nombre:</label>
+						<input type="text" name="nombre"  class="form-control" > </br>
 
-					<label>Nombre:</label>
-					<input type="text" name="nombre"  class="form-control" > </br>
+						<label>Apellidos:</label>
+						<input type="text" name="apellidos"  class="form-control" ></br>
 
-					<label>Apellidos:</label>
-					<input type="text" name="apellidos"  class="form-control" ></br>
+						<label>Domicilio:</label>
+						<input type="text" name="domicilio"  class="form-control" ></br>
 
-					<label>Domicilio:</label>
-					<input type="text" name="domicilio"  class="form-control" ></br>
-
-					<label>Telefono:</label>
-					<input type="text" name="telefono"  class="form-control" ></br>
+						<label>Telefono:</label>
+						<input type="text" name="telefono"  class="form-control" ></br>
 
 
-					<input type="submit" name="enviar" value="Registrarme"  class="btn btn-custom"> 	
+						<input type="submit" name="enviar"  id="bpublicar" value="Registrarme"  class="btn btn-custom"> 	
+					</div>
 				</form>
 
 			</div>
