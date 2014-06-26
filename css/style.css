@@ -201,3 +201,7 @@ fieldset[disabled] .btn-custom.active {
 #mensajeRegistro p {
 
 }
+
+.form-group{
+  margin-right: 8px;
+}

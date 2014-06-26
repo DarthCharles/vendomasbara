@@ -40,7 +40,13 @@
 		}
 
 		public function query($sql){
-			mysqli_query($this->conn, $sql);
+			$query = mysqli_query($this->conn, $sql);
+			return $query;
+		}
+
+		public function numRows($query){
+			$rows = mysqli_num_rows($query);
+			return $rows;
 		}
 	}
- ?>
+	?>

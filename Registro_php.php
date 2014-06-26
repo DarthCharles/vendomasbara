@@ -1,4 +1,7 @@
 <?php 
+session_start();
+include ("libMenu.php");
+
 $respuesta = "Hubo un error en el registro";
 
 if (isset($_POST['enviar'])) {
@@ -48,18 +51,13 @@ if (isset($_POST['enviar'])) {
 				</button>
 				<a href="index.html"><img src="img/logo.png" alt=""></a>
 			</div>
+
 			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="nueva.html">Nueva publicación</a></li>
-					<li><a href="perfil.html">Perfil</a></li>
-					<li><a href="#">Cerrar sesión</a></li>
-				</ul>
-				<form class="navbar-form navbar-right">
-					<div class="left-inner-addon ">
-						<i class="glyphicon glyphicon-search" id="glif"></i>
-						<input type="text" class="form-control" placeholder="Estoy buscando..."/>
-					</div>
-				</form>
+
+				<?php 
+				noRegistrado();
+				?>
+
 			</div>
 		</div>
 	</div>
@@ -69,12 +67,13 @@ if (isset($_POST['enviar'])) {
 			<div class="container">
 				<div class="col-md-6" id="mensajeRegistro" >
 					<p class="lead"><?php echo $respuesta ?></p>
-					<a href="index.html"><p class="span12">Volver a inicio</p></a>
+					<h5>¡Ahora puedes iniciar sesión!</h5>
+					<a href="index.php">Volver a inicio</a>
 				</div>
 				<div>
 					<img src="img/logo2.png" alt="">
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
