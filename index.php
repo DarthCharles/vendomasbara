@@ -33,10 +33,10 @@
        </ul>
        
        <form class="navbar-form navbar-right">
-    <div class="left-inner-addon ">
-      <i class="glyphicon glyphicon-search" id="glif"></i>
-      <input type="text" class="form-control" placeholder="Estoy buscando..."/>
-  </div>
+        <div class="left-inner-addon ">
+          <i class="glyphicon glyphicon-search" id="glif"></i>
+          <input type="text" class="form-control" placeholder="Estoy buscando..."/>
+        </div>
       </form>
     </div>
   </div>
@@ -66,9 +66,26 @@
         <li><a href="#">Salud y Belleza</a></li>
         <li><a href="#">Otras Categorías</a></li>
       </ul>
+
+
     </div>
+
+    <div class="col-md-offset-2 main">
+      <?php 
+      for ($i=1; $i <=8 ; $i++) { 
+        echo "<div class='col-md-4'  id='producto'>";
+        echo "<center><img src='img/productos/carro".$i.".jpg' class='img-rounded img-responsive'></center>";
+        echo "<h4>Lorem ipsum dolor sit amet</h4>";
+        echo "<h5>Precio: $5,100</h5>";
+        echo "</div>";
+      }
+
+      ?>
+    </div>
+
+
+
   </div>
-</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
