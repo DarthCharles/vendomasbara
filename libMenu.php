@@ -6,7 +6,7 @@ function registrado()
 	echo "<ul class='nav navbar-nav navbar-right'>";
 	echo "<li><a href='nueva.html'>Nueva publicación</a></li>";
 	echo "<li><a href='perfil.php'>Pefil</a></li>";
-	echo "<li><a href='publicación.php'>Cerrar sesión</a></li>";
+	echo "<li><a href='publicacion.html'>Cerrar sesión</a></li>";
 	echo " </ul>";
 
 //Esta es la barrita para hacer las busquedas
