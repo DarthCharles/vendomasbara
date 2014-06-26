@@ -71,7 +71,7 @@ if (isset($_POST['enviar'])) {
 					<a href="index.php">Volver a inicio</a>
 				</div>
 				<div>
-					<img src="img/logo2.png" alt="">
+					<center><img src="img/logo2.png" alt=""></center>
 				</div>
 
 			</div>
