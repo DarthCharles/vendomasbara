@@ -34,7 +34,7 @@ function noRegistrado()
 	echo "<div class='form-group'>";
 	echo "<div class='left-inner-addon'>";
 	echo "<i class='glyphicon glyphicon-user' id='glif'></i>";
-	echo "<input type='text' class='form-control' name='usuario' placeholder='Estoy buscando...'/>";
+	echo "<input type='text' class='form-control' name='usuario' placeholder='Usuario'/>";
 	echo "</div>";
 	echo "</div>";
 	echo "<div class='form-group'>";
