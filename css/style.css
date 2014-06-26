@@ -12,6 +12,9 @@ p{
   color: #ffffff;
 }
 
+a:hover {
+  color: #6414A2;
+}
 h1,h2,h3,h4{
   color: #ffffff;
   margin: 10px;
