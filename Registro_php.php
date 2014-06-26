@@ -67,12 +67,13 @@ if (isset($_POST['enviar'])) {
 	<div class="container-fluid">
 		<div class="row">
 			<div class="container">
-			<div class="col-md-6">
-				<p class="lead"><?php echo $respuesta ?></p>
-			</div>
-			<div>
-				<img src="img/logo2.png" alt="">
-			</div>
+				<div class="col-md-6" id="mensajeRegistro" >
+					<p class="lead"><?php echo $respuesta ?></p>
+					<a href="index.html"><p class="span12">Volver a inicio</p></a>
+				</div>
+				<div>
+					<img src="img/logo2.png" alt="">
+				</div>
 				
 			</div>
 		</div>

@@ -168,7 +168,7 @@ h1,h2,h3,h4{
 .btn-custom:focus,
 .btn-custom:active,
 .btn-custom.active {
-    color: #fff;
+  color: #fff;
   background-color: #56118b;
   border-color: #480e75;
 }
@@ -187,5 +187,14 @@ fieldset[disabled] .btn-custom.active {
 
   background-color: #6414A2;
   border-color: #6414A2;
+
+}
+
+#mensajeRegistro{
+  margin-top: 20%;
+  text-align: center;
+}
+
+#mensajeRegistro p {
 
 }
