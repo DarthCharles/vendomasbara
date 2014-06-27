@@ -40,7 +40,17 @@
 		}
 
 		public function query($sql){
+<<<<<<< HEAD
 			mysqli_query($this->conn, $sql) or die ("Error".mysqli_error($this->conn));
+=======
+			$query = mysqli_query($this->conn, $sql);
+			return $query;
+		}
+
+		public function numRows($query){
+			$rows = mysqli_num_rows($query);
+			return $rows;
+>>>>>>> origin/master
 		}
 	}
- ?>
+	?>

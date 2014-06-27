@@ -1,29 +1,4 @@
-<?php 
-session_start();
-include ("libMenu.php");
-
-$respuesta = "Hubo un error en el registro";
-
-if (isset($_POST['enviar'])) {
-	$usuario = $_POST['usuario'];
-	$password = $_POST['password'];
-	$nombre = $_POST['nombre'];
-	$apellidos = $_POST['apellidos'];
-	$domicilio = $_POST['domicilio'];
-	$telefono = $_POST['telefono'];
-
-	require_once dirname(__FILE__).'/db_connect.php';
-
-	$db = new DB_CONNECT(); 
-
-	$sql = "INSERT INTO Usuario (usuario, password, nombre, apellidos, domicilio, telefono) VALUES ('$usuario','$password','$nombre','$apellidos','$domicilio','$telefono')";
-
-	$db->query($sql);
-	$respuesta = "Usuario registrado correctamente";
-
-}
-?>
-
+<?php include ("libMenu.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -39,6 +14,7 @@ if (isset($_POST['enviar'])) {
 </head>
 
 <body>
+
 
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -65,14 +41,35 @@ if (isset($_POST['enviar'])) {
 	<div class="container-fluid">
 		<div class="row">
 			<div class="container">
-				<div class="col-md-6" id="mensajeRegistro" >
-					<p class="lead"><?php echo $respuesta ?></p>
-					<h5>¡Ahora puedes iniciar sesión!</h5>
-					<a href="index.php">Volver a inicio</a>
-				</div>
-				<div>
-					<center><img src="img/logo2.png" alt=""></center>
-				</div>
+				<h3>Registro de Usuario</h3>
+				<form method="POST" action="Registro_php.php">
+					<div class="col-md-6">
+						<label>Usuario:</label>
+						<input type="text" name="usuario"  class="form-control" ></br>
+
+						<label>Clave:</label>
+						<input type="password" name="password"  class="form-control" ></br>
+
+						<label>Repetir Clave:</label>
+						<input type="password" name="reppassword"  class="form-control" ></br>
+					</div>
+					<div class="col-md-6">
+						<label>Nombre:</label>
+						<input type="text" name="nombre"  class="form-control" > </br>
+
+						<label>Apellidos:</label>
+						<input type="text" name="apellidos"  class="form-control" ></br>
+
+						<label>Domicilio:</label>
+						<input type="text" name="domicilio"  class="form-control" ></br>
+
+						<label>Telefono:</label>
+						<input type="text" name="telefono"  class="form-control" ></br>
+
+
+						<input type="submit" name="enviar"  id="bpublicar" value="Registrarme"  class="btn btn-custom"> 	
+					</div>
+				</form>
 
 			</div>
 		</div>
@@ -85,3 +82,4 @@ if (isset($_POST['enviar'])) {
     <script src="js/docs.min.js"></script>
 </body>
 </html>
+
