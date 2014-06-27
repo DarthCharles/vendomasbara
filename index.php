@@ -81,7 +81,7 @@
             <?php 
             for ($i=1; $i <=8 ; $i++) { 
               echo "<div class='col-md-4'  id='producto'>";
-              echo "<center><img src='img/productos/carro".$i.".jpg' class='img-rounded img-responsive'></center>";
+              echo "<center><a href='publicacion.html'><img src='img/productos/carro".$i.".jpg' class='img-rounded img-responsive'></a></center>";
               echo "<center><h4>Lorem ipsum dolor sit amet</h4></center>";
               echo "<center><h5>Precio: $5,100</h5></center>";
               echo "</div>";
