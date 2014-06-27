@@ -35,8 +35,6 @@ DROP TABLE IF EXISTS `VendoMasBara`.`Categoria` ;
 CREATE TABLE IF NOT EXISTS `VendoMasBara`.`Categoria` (
   `idCategoria` INT NOT NULL AUTO_INCREMENT,
   `Nombre_Categoria` VARCHAR(25) NOT NULL,
-  `Descripcion` TEXT NOT NULL,
-  `imagen` VARCHAR(25) NOT NULL,
   PRIMARY KEY (`idCategoria`),
   UNIQUE INDEX `Nombre_Categoria_UNIQUE` (`Nombre_Categoria` ASC))
 ENGINE = InnoDB;
@@ -52,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `VendoMasBara`.`Publicacion` (
   `Titulo` VARCHAR(25) NOT NULL,
   `Precio` INT NOT NULL,
   `Descripcion` TEXT NOT NULL,
-  `Nuevo` TINYINT(1) NOT NULL,
+  `Estado` VARCHAR(5) NOT NULL,
   `Imagen` VARCHAR(45) NOT NULL,
   `Categoria_idCategoria` INT NOT NULL,
   `Usuario_idUsuario` INT NOT NULL,
