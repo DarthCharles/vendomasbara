@@ -18,8 +18,8 @@ $rows = $db->numRows($query);
 
 if ($rows == 0) {
 	$db->Close();
-	header("Location: index.php?login=false");
-
+	header("Location: index.php?login=incorrect");
+   
 }else{
 
 $res=mysqli_fetch_array($query);
