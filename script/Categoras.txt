@@ -1,0 +1,22 @@
+
+
+
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Accesorios para Vehículos');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Animales y Mascotas');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Arte y Antigüedades');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Bebés');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Cámaras y Accesorios');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Celulares y Telefonía');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Computación');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Consolas y Videojuegos');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Deporte y Fitness');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Electrónica, audio y video');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Hogar y Electrodomésticos');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Industrias y Oficinas');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Joyas y Relojes');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Juegos y Juguetes');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Libros, Revistas y Comics');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Música, Películas y Series');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Ropa, Bolsas y Calzado');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Salud y Belleza');
+INSERT INTO `vendomasbara`.`categoria` (`Nombre_Categoria`) VALUES ('Otras Categorías');
