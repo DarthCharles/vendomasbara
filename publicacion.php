@@ -1,30 +1,34 @@
 <?php 
+session_start(); 
 
-  if (isset($_GET['idPublicacion'])) {
-    $idPublicacion = $_GET['idPublicacion'];
-    $query = "SELECT u.*, p.*, c.Nombre_Categoria FROM Publicacion p INNER JOIN Categoria c on p.Categoria_idCategoria = c.idCategoria INNER JOIN Usuario u on u.idUsuario = p.Usuario_idUsuario WHERE p.idPublicacion = 2";
-      require_once dirname(__FILE__).'/db_connect.php';
+if (isset($_GET['idPublicacion'])) {
+  $idPublicacion = $_GET['idPublicacion'];
 
-    $db = new DB_CONNECT();
+  $query = "SELECT u.*, p.*, c.Nombre_Categoria FROM Publicacion p INNER JOIN Categoria c on p.Categoria_idCategoria = c.idCategoria INNER JOIN Usuario u on u.idUsuario = p.Usuario_idUsuario WHERE p.idPublicacion =".$idPublicacion;
+  echo $query;
 
-    if ($data = $db->query($query)) {
-      if ($db->numRows($data)>0) {
-        if ($row = mysqli_fetch_array($data)) {
-          $titulo = $row["Titulo"];
-          $precio = $row["Precio"];
-          $estado = $row["Estado"];
-          $descripcion = $row["Descripcion"];
-          $imagen = $row["Imagen"];
-          $nombre_Vendedor = $row["Nombre"];
-          $telefono_Vendedor = $row["Telefono"];
-          $ubicacion_Vendedor = $row["Domicilio"];
-          $nombre_categoria = $row["Nombre_Categoria"];
-        }
+  require_once dirname(__FILE__).'/db_connect.php';
+
+  $db = new DB_CONNECT();
+
+  if ($data = $db->query($query)) {
+    if ($db->numRows($data)>0) {
+      if ($row = mysqli_fetch_array($data)) {
+        $titulo = $row["Titulo"];
+        $precio = $row["Precio"];
+        $estado = $row["Estado"];
+        $descripcion = $row["Descripcion"];
+        $imagen = $row["Imagen"];
+        $nombre_Vendedor = $row["Nombre"];
+        $telefono_Vendedor = $row["Telefono"];
+        $ubicacion_Vendedor = $row["Domicilio"];
+        $nombre_categoria = $row["Nombre_Categoria"];
       }
     }
-
   }
- ?>
+
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -52,7 +56,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="index.html"><img src="img/logo.png" alt=""></a>
+        <a href="index.php"><img src="img/logo.png" alt=""></a>
       </div>
       <div class="navbar-collapse collapse">
        <ul class="nav navbar-nav navbar-right">
@@ -92,9 +96,9 @@
      <div class="col-md-12">
        <p class="datos">Descripción:</p>
        <p><?php echo $descripcion; ?></p>
-      </div>
-    </div>
-    <div class="row">
+     </div>
+   </div>
+   <div class="row">
      <div class="col-md-5">
 
        <h4>Datos del vendedor</h4>

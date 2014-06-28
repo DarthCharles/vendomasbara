@@ -1,12 +1,13 @@
 <?php
+require_once dirname(__FILE__).'/db_connect.php';
 function registrado()
 {
 	//Aqui imprime los menus a los que tiene acceso el usuario
 	//registrado
 	echo "<ul class='nav navbar-nav navbar-right'>";
-	echo "<li><a href='nueva.html'>Nueva publicación</a></li>";
+	echo "<li><a href='nueva.php'>Nueva publicación</a></li>";
 	echo "<li><a href='perfil.php'>Pefil</a></li>";
-	echo "<li><a href='publicacion.html'>Cerrar sesión</a></li>";
+	echo "<li><a href='cerrar.php'>Cerrar sesión</a></li>";
 	echo " </ul>";
 
 //Esta es la barrita para hacer las busquedas
@@ -45,5 +46,43 @@ function noRegistrado()
 	echo "</div>";
 	echo "<button type='submit' name='enviar' class='btn btn-custom'>Iniciar sesión</button>";
 	echo"</form>";
+}
+function printCategorias(){
+
+	$db = new DB_CONNECT(); 
+	$consulta = "SELECT * FROM categoria";
+	$query = $db->query($consulta);
+	while ($res=mysqli_fetch_array($query)) {
+		$idCat = $res["idCategoria"];
+		$nombreCat = $res["Nombre_Categoria"];
+
+		echo "<li><a href='productos.php?idCategoria=".$idCat."'>".$nombreCat."</a></li>";
+	}
+
+
+}
+
+function categorias(){
+	$idcate = $_GET["idCategoria"];
+	$db = new DB_CONNECT(); 
+	$consulta = "SELECT * FROM categoria";
+	$query = $db->query($consulta);
+	while ($res=mysqli_fetch_array($query)) {
+		$idCat = $res["idCategoria"];
+		$nombreCat = $res["Nombre_Categoria"];
+		$a = "class='active'";
+		if ($idCat == $idcate)  {
+			echo "<li ".$a."><a href='productos.php?idCategoria=".$idCat."'>".$nombreCat."</a></li>";
+		} else {
+			echo "<li><a href='productos.php?idCategoria=".$idCat."'>".$nombreCat."</a></li>";
+		}
+
+	}
+
+}
+function loginErrMess(){
+	echo  "<div class='alert alert-danger' role='alert'>
+	<strong>¡Advertencia!</strong> Nombre de usuario o contraseña incorecta.
+</div>";
 }
 ?>

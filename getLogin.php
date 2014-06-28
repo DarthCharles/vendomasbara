@@ -21,7 +21,13 @@ if ($rows == 0) {
 	header("Location: index.php?login=false");
 
 }else{
+
+$res=mysqli_fetch_array($query);
+
+    
+	$_SESSION["idUsuario"] = $res['idUsuario'];
 	$_SESSION["user"] = $user;
+	$_SESSION["loginStatus"] = "true";
 	$_SESSION["auth"] = 1;
 	$db->Close();
 	header("Location: index.php?login=true");

@@ -50,6 +50,7 @@
 			return $rows;
 		}
 
+	
 		public function lastInsertedId(){
 			$lastID = mysqli_insert_id($this->conn);
 			return $lastID;
