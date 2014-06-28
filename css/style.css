@@ -205,3 +205,25 @@ fieldset[disabled] .btn-custom.active {
 .form-group{
   margin-right: 8px;
 }
+
+#producto {
+  height: 290px;
+
+}
+
+#producto img {
+    display: block;
+    max-width:270px;
+    max-height:200px;
+    width: auto;
+    height: auto;
+
+}
+
+@media (max-width:  992px) {
+  #producto {
+    height: 80%;
+
+  }
+
+}
