@@ -18,6 +18,7 @@
           $nombre_Vendedor = $row["Nombre"];
           $telefono_Vendedor = $row["Telefono"];
           $ubicacion_Vendedor = $row["Domicilio"];
+          $nombre_categoria = $row["Nombre_Categoria"];
         }
       }
     }
@@ -79,7 +80,7 @@
       </div>
       <div class="col-md-6">
        <p class="datos">Categoría:</p>
-       <p>Lorem ipsum dolor sit amet</p>
+       <p><?php echo $nombre_categoria ?></p>
        <p class="datos">Precio: </p>
        <p>$ <?php echo $precio; ?></p>
        <p class="datos">Estado:</p>
