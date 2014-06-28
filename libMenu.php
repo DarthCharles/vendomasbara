@@ -85,4 +85,10 @@ function loginErrMess(){
 	<strong>¡Advertencia!</strong> Nombre de usuario o contraseña incorecta.
 </div>";
 }
+
+function loginWelcome(){
+	echo  "<div class='alert alert-success' role='alert'>
+	<strong>¡Bienvenido!</strong> Te extrañabamos :D!.
+</div>";
+}
 ?>

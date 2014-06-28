@@ -18,7 +18,7 @@ $rows = $db->numRows($query);
 
 if ($rows == 0) {
 	$db->Close();
-	header("Location: index.php?login=incorrect");
+	header("Location: index.php?login=false");
    
 }else{
 
