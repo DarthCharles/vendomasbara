@@ -3,10 +3,13 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Schema VendoMasBara
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `VendoMasBara` ;
-CREATE SCHEMA IF NOT EXISTS `VendoMasBara` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+CREATE SCHEMA IF NOT EXISTS `VendoMasBara` DEFAULT CHARACTER SET utf8 ;
 USE `VendoMasBara` ;
 
 -- -----------------------------------------------------
@@ -22,6 +25,8 @@ CREATE TABLE IF NOT EXISTS `VendoMasBara`.`Usuario` (
   `Password` VARCHAR(15) NOT NULL,
   `Domicilio` VARCHAR(50) NOT NULL,
   `Telefono` VARCHAR(10) NOT NULL,
+  `Celular` VARCHAR(10) NOT NULL,
+  `Correo` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`idUsuario`),
   UNIQUE INDEX `Usuario_UNIQUE` (`Usuario` ASC))
 ENGINE = InnoDB;
@@ -34,9 +39,7 @@ DROP TABLE IF EXISTS `VendoMasBara`.`Categoria` ;
 
 CREATE TABLE IF NOT EXISTS `VendoMasBara`.`Categoria` (
   `idCategoria` INT NOT NULL AUTO_INCREMENT,
-  `Nombre_Categoria` VARCHAR(25) NOT NULL,
-  `Descripcion` TEXT NOT NULL,
-  `imagen` VARCHAR(25) NOT NULL,
+  `Nombre_Categoria` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`idCategoria`),
   UNIQUE INDEX `Nombre_Categoria_UNIQUE` (`Nombre_Categoria` ASC))
 ENGINE = InnoDB;
@@ -49,11 +52,11 @@ DROP TABLE IF EXISTS `VendoMasBara`.`Publicacion` ;
 
 CREATE TABLE IF NOT EXISTS `VendoMasBara`.`Publicacion` (
   `idPublicacion` INT NOT NULL AUTO_INCREMENT,
-  `Titulo` VARCHAR(25) NOT NULL,
+  `Titulo` VARCHAR(50) NOT NULL,
   `Precio` INT NOT NULL,
   `Descripcion` TEXT NOT NULL,
-  `Nuevo` TINYINT(1) NOT NULL,
-  `Imagen` VARCHAR(45) NOT NULL,
+  `Estado` VARCHAR(5) NOT NULL,
+  `Imagen` VARCHAR(100) NOT NULL,
   `Categoria_idCategoria` INT NOT NULL,
   `Usuario_idUsuario` INT NOT NULL,
   PRIMARY KEY (`idPublicacion`),

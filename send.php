@@ -4,11 +4,12 @@
 $name = $_POST['name'];
 $email = $_POST['email'];
 $message = $_POST['message'];
+$correo_vendedor = $_POST['correo_vendedor'];
 
 // Aqui modificas los datos el remitento, el asunto etc, etc
-$to = 'carlos.darth@gmail.com';
+$to = $email = $correo_vendedor;
 $subject = "Request";
-$message ="From: ". $_POST["email"]."\n". 
+$message ="From: ". $email ."\n". 
 "Name: ".$_POST["name"]."\n".
 "Message: ".$_POST["message"]."\n";
 $headers = 'From: vendedor@vendomasbara.com';

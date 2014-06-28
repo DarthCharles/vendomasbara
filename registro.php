@@ -42,7 +42,7 @@
 		<div class="row">
 			<div class="container">
 				<h3>Registro de Usuario</h3>
-				<form method="POST" action="Registro_php.php">
+				<form method="POST" action="Registro_php.php" onsubmit="">
 					<div class="col-md-6">
 						<label>Usuario:</label>
 						<input type="text" name="usuario"  class="form-control" ></br>
@@ -52,6 +52,10 @@
 
 						<label>Repetir Clave:</label>
 						<input type="password" name="reppassword"  class="form-control" ></br>
+
+						<label>Correo:</label>
+						<input type="text" name="correo"  class="form-control" ></br>
+
 					</div>
 					<div class="col-md-6">
 						<label>Nombre:</label>
@@ -65,6 +69,9 @@
 
 						<label>Telefono:</label>
 						<input type="text" name="telefono"  class="form-control" ></br>
+
+						<label>Celular:</label>
+						<input type="text" name="celular"  class="form-control" ></br>
 
 
 						<input type="submit" name="enviar"  id="bpublicar" value="Registrarme"  class="btn btn-custom"> 	

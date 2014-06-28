@@ -11,12 +11,14 @@ if (isset($_POST['enviar'])) {
 	$apellidos = $_POST['apellidos'];
 	$domicilio = $_POST['domicilio'];
 	$telefono = $_POST['telefono'];
+	$celular = $_POST['celular'];
+	$correo = $_POST['correo'];
 
 	require_once dirname(__FILE__).'/db_connect.php';
 
 	$db = new DB_CONNECT(); 
 
-	$sql = "INSERT INTO Usuario (usuario, password, nombre, apellidos, domicilio, telefono) VALUES ('$usuario','$password','$nombre','$apellidos','$domicilio','$telefono')";
+	$sql = "INSERT INTO Usuario (usuario, password, nombre, apellidos, domicilio, telefono, celular, correo) VALUES ('$usuario','$password','$nombre','$apellidos','$domicilio','$telefono', '$celular', '$correo')";
 
 	$db->query($sql);
 	$respuesta = "Usuario registrado correctamente";
