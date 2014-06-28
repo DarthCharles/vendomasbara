@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $message = $_POST['message'];
 
 // Aqui modificas los datos el remitento, el asunto etc, etc
-$to = 'carlos.darth@gmail.com';
+$to = $email = $_POST['email'];
 $subject = "Request";
 $message ="From: ". $_POST["email"]."\n". 
 "Name: ".$_POST["name"]."\n".
