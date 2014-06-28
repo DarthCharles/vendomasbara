@@ -21,7 +21,9 @@ if (isset($_GET['idPublicacion'])) {
         $imagen = $row["Imagen"];
         $nombre_Vendedor = $row["Nombre"];
         $telefono_Vendedor = $row["Telefono"];
+        $celular_Vendedor = $row["Celular"];
         $ubicacion_Vendedor = $row["Domicilio"];
+        $correo_Vendedor = $row["Correo"];
         $nombre_categoria = $row["Nombre_Categoria"];
       }
     }
@@ -107,7 +109,7 @@ if (isset($_GET['idPublicacion'])) {
        <p class="datos">Telefono: </p>
        <p><?php echo $telefono_Vendedor; ?></p>
        <p class="datos">Celular: </p>
-       <p>Lorem ipsum dolor sit amet</p>
+       <p><?php echo $celular_Vendedor; ?></p>
        <p class="datos">Ubicación:</p>
        <p><?php echo $ubicacion_Vendedor; ?></p>
      </div>
@@ -122,6 +124,7 @@ if (isset($_GET['idPublicacion'])) {
           <label for="message">Pregunta o comentario:</label><span id="errMes3"></span><br />
           <textarea name="message" id="message" maxlength="1000" cols="18" rows="3" class="form-control" 
           ></textarea>
+          <input type = "hidden" name = "correo_vendedor" value = "<?php echo $correo_Vendedor; ?>">
           <button type="submit" class="btn btn-custom" id="bpublicar">Enviar</button>
           <div id="success" style="color:red;"></div>
         </form>
