@@ -3,10 +3,13 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Schema VendoMasBara
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `VendoMasBara` ;
-CREATE SCHEMA IF NOT EXISTS `VendoMasBara` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+CREATE SCHEMA IF NOT EXISTS `VendoMasBara` DEFAULT CHARACTER SET utf8 ;
 USE `VendoMasBara` ;
 
 -- -----------------------------------------------------
@@ -22,6 +25,8 @@ CREATE TABLE IF NOT EXISTS `VendoMasBara`.`Usuario` (
   `Password` VARCHAR(15) NOT NULL,
   `Domicilio` VARCHAR(50) NOT NULL,
   `Telefono` VARCHAR(10) NOT NULL,
+  `Celular` VARCHAR(10) NOT NULL,
+  `Correo` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`idUsuario`),
   UNIQUE INDEX `Usuario_UNIQUE` (`Usuario` ASC))
 ENGINE = InnoDB;
