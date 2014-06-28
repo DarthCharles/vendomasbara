@@ -1,29 +1,3 @@
-<?php 
-
-  if (isset($_GET['idPublicacion'])) {
-    $idPublicacion = $_GET['idPublicacion'];
-    $query = "SELECT u.*, p.*, c.Nombre_Categoria FROM Publicacion p INNER JOIN Categoria c on p.Categoria_idCategoria = c.idCategoria INNER JOIN Usuario u on u.idUsuario = p.Usuario_idUsuario WHERE p.idPublicacion = 2";
-      require_once dirname(__FILE__).'/db_connect.php';
-
-    $db = new DB_CONNECT();
-
-    if ($data = $db->query($query)) {
-      if ($db->numRows($data)>0) {
-        if ($row = mysqli_fetch_array($data)) {
-          $titulo = $row["Titulo"];
-          $precio = $row["Precio"];
-          $estado = $row["Estado"];
-          $descripcion = $row["Descripcion"];
-          $imagen = $row["Imagen"];
-          $nombre_Vendedor = $row["Nombre"];
-          $telefono_Vendedor = $row["Telefono"];
-          $ubicacion_Vendedor = $row["Domicilio"];
-        }
-      }
-    }
-
-  }
- ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -72,25 +46,30 @@
 <div class="container-fluid">
 
   <div class="container">
-    <div class="row" id="titulo"><h3><?php echo $titulo; ?></h3></div>
+    <div class="row" id="titulo"><h3>Título del post</h3></div>
     <div class="row">
       <div class="col-md-6">
-        <img src="<?php echo $imagen; ?>" class="img-rounded img-responsive" alt="Responsive image" id="image1n">
+        <img src="img/imagen.jpg" class="img-rounded img-responsive" alt="Responsive image" id="image1n">
       </div>
       <div class="col-md-6">
        <p class="datos">Categoría:</p>
        <p>Lorem ipsum dolor sit amet</p>
        <p class="datos">Precio: </p>
-       <p>$ <?php echo $precio; ?></p>
+       <p>$ 0000.00</p>
        <p class="datos">Estado:</p>
-       <p><?php echo $estado; ?></p>
+       <p>Lorem ipsum dolor sit amet</p>
 
      </div>
    </div>
    <div class="row">
      <div class="col-md-12">
        <p class="datos">Descripción:</p>
-       <p><?php echo $descripcion; ?></p>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
     </div>
     <div class="row">
@@ -98,13 +77,13 @@
 
        <h4>Datos del vendedor</h4>
        <p class="datos">Nombre:</p>
-       <p><?php echo $nombre_Vendedor; ?></p>
+       <p>Lorem ipsum dolor sit amet</p>
        <p class="datos">Telefono: </p>
-       <p><?php echo $telefono_Vendedor; ?></p>
+       <p>Lorem ipsum dolor sit amet</p>
        <p class="datos">Celular: </p>
        <p>Lorem ipsum dolor sit amet</p>
        <p class="datos">Ubicación:</p>
-       <p><?php echo $ubicacion_Vendedor; ?></p>
+       <p>Lorem ipsum dolor sit amet</p>
      </div>
      <div class="col-md-6">
        <div class="mailForm">
