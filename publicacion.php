@@ -1,6 +1,11 @@
 <?php 
+include ("libMenu.php");
 session_start(); 
-
+$loginResult ="";
+if (isset($_SESSION["loginStatus"])){
+ 
+  $loginResult = $_SESSION["loginStatus"];
+} 
 if (isset($_GET['idPublicacion'])) {
   $idPublicacion = $_GET['idPublicacion'];
 
@@ -50,28 +55,28 @@ if (isset($_GET['idPublicacion'])) {
 <body>
 
  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="index.php"><img src="img/logo.png" alt=""></a>
-      </div>
-
-      <div class="navbar-collapse collapse">
-
-        <?php if ($loginResult == "true") {
-         registrado();
-
-       } else {
-        noRegistrado();
-      }?>
-
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.php"><img src="img/logo.png" alt=""></a>
     </div>
+
+    <div class="navbar-collapse collapse">
+
+      <?php if ($loginResult == "true") {
+       registrado();
+
+     } else {
+      noRegistrado();
+    }?>
+
   </div>
+</div>
 </div>
 
 <div class="container-fluid">

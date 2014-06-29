@@ -2,11 +2,11 @@
       include ("libMenu.php");
       require_once dirname(__FILE__).'/db_connect.php';
       session_start();
-      $loginResult = "";
+      $loginResult ="";
       if (isset($_SESSION["loginStatus"])){
-        
+     
         $loginResult = $_SESSION["loginStatus"];
-      } 
+     } 
       ?>
 
       <!DOCTYPE html>
