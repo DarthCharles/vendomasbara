@@ -5,8 +5,6 @@ $loginResult = $_SESSION["loginStatus"];
 
 if (isset($_SESSION['idUsuario'])){
   $idUsuario = $_SESSION['idUsuario'];
-  echo $idUsuario;     
-
 
   $query = "SELECT * FROM usuario WHERE idUsuario =".$idUsuario;
  
@@ -28,8 +26,6 @@ if (isset($_SESSION['idUsuario'])){
   }
 
 }
-
-
 
 
 ?>
@@ -86,7 +82,7 @@ if (isset($_SESSION['idUsuario'])){
       
       <div class='row'>
         <div class='col-md-3'>
-        <h2><?php echo $Nombre; ?></h2>
+        <h2><?php echo $Usuario; ?></h2>
       </div>
         </div>
 
@@ -98,7 +94,7 @@ if (isset($_SESSION['idUsuario'])){
       </div>
       <div class='col-md-4'>
        <p class='datos'>Nombre:</p>
-       <p><?php echo $Usuario; ?></p>
+       <p><?php echo $Nombre; ?></p>
        <p class='datos'>Apellidos: </p>
        <p><?php echo $Apellidos; ?></p>
        <p class='datos'>Domicilio:</p>
@@ -159,6 +155,7 @@ while ($row = $result->fetch_array()) {
 
   echo "
        <div class='container-fluid' >
+       <hr  width='95%' />
             <div class='col-md-2'>
                     <img src='http://lorempixel.com/100/100' />
                 </div>
@@ -183,7 +180,9 @@ while ($row = $result->fetch_array()) {
 
         }
 
-        echo "  </div>
+        echo "  
+<hr width='95%'/>
+        </div>
   </div>
 </div>";
 
