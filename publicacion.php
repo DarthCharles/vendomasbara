@@ -83,10 +83,10 @@ if (isset($_GET['idPublicacion'])) {
   <div class="container">
     <div class="row" id="titulo"><h3><?php echo $titulo; ?></h3></div>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-5">
         <img src="<?php echo $imagen; ?>" class="img-rounded img-responsive" alt="Responsive image" id="image1n">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-7">
        <p class="datos">Categoría:</p>
        <p><?php echo $nombre_categoria ?></p>
        <p class="datos">Precio: </p>
