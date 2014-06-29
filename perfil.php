@@ -20,6 +20,8 @@ if (isset($_SESSION['idUsuario'])){
         $Apellidos = $row["Apellidos"];
         $Domicilio = $row["Domicilio"];
         $Telefono = $row["Telefono"];
+        $Celular = $row["Celular"];
+        $Correo = $row["Correo"];
 
       }
     }
@@ -104,13 +106,15 @@ if (isset($_SESSION['idUsuario'])){
      <div class='col-md-4'>
        <p class='datos'>Teléfono:</p>
        <p><?php echo $Telefono; ?></p>
+       <p class='datos'>Celular:</p>
+       <p><?php echo $Celular; ?></p>
        <p class='datos'>Correo: </p>
-       <p>Lorem ipsum dolor sit amet</p>
+       <p><?php echo $Correo; ?></p>
      </div>
 
     </div>
 
-      <button class='btn btn-custom' id='bpublicar' name='bconfig'><i class='glyphicon glyphicon-cog white' ></i>Configurar datos</button>
+      <button class='btn btn-custom' id='bpublicar' name='bconfig' onClick="window.location.href='editardatos.php'"><i class='glyphicon glyphicon-cog white' ></i>Configurar datos</button>
     
 </div>
 </div>
@@ -175,7 +179,7 @@ while ($row = $result->fetch_array()) {
                     <p><strong>Categoría</strong></p>
                     <p>".$row['Categoria_idCategoria']."</p>
                 </div>
-                <button  name='bconfig'><i class='glyphicon glyphicon-cog white' ></i>Borrar</button>
+                <button  name='bconfig'><i class='glyphicon glyphicon-remove' ></i>Borrar</button>
            </div>";
 
         }
