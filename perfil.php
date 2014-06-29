@@ -2,7 +2,39 @@
 include ("libMenu.php");
 session_start(); 
 $loginResult = $_SESSION["loginStatus"];
+
+if (isset($_SESSION['idUsuario'])){
+  $idUsuario = $_SESSION['idUsuario'];
+  echo $idUsuario;     
+
+
+  $query = "SELECT * FROM usuario WHERE idUsuario =".$idUsuario;
+ 
+  require_once dirname(__FILE__).'/db_connect.php';
+
+  $db = new DB_CONNECT();
+
+  if ($data = $db->query($query)) {
+    if ($db->numRows($data)>0) {
+      if ($row = mysqli_fetch_array($data)) {
+        $Nombre = $row["Nombre"];
+        $Usuario = $row["Usuario"];
+        $Apellidos = $row["Apellidos"];
+        $Domicilio = $row["Domicilio"];
+        $Telefono = $row["Telefono"];
+
+      }
+    }
+  }
+
+}
+
+
+
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,47 +78,47 @@ $loginResult = $_SESSION["loginStatus"];
 </div>
 
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="container">
-      <div class="row" id="titulo"><h3>Perfil de usuario</h3></div>
+
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='container'>
+      <div class='row' id='titulo'><h3>Perfil de usuario</h3></div>
       
-      <div class="row">
-        <div class="col-md-3">
-        <h2>Usuario</h2>
+      <div class='row'>
+        <div class='col-md-3'>
+        <h2><?php echo $Nombre; ?></h2>
       </div>
         </div>
 
-        <div class="row">
-      <div class="col-md-3">
+        <div class='row'>
+      <div class='col-md-3'>
         
-        <img src="img/perfil.png" class="img-rounded img-responsive" alt="Responsive image" id="image1n">
+        <img src='img/perfil.png' class='img-rounded img-responsive' alt='Responsive image' id='image1n'>
         
       </div>
-      <div class="col-md-4">
-       <p class="datos">Nombre:</p>
-       <p>Lorem ipsum dolor sit amet</p>
-       <p class="datos">Apellidos: </p>
-       <p>Lorem ipsum dolor sit amet</p>
-       <p class="datos">Domicilio:</p>
-       <p>Lorem ipsum dolor sit amet</p>
+      <div class='col-md-4'>
+       <p class='datos'>Nombre:</p>
+       <p><?php echo $Usuario; ?></p>
+       <p class='datos'>Apellidos: </p>
+       <p><?php echo $Apellidos; ?></p>
+       <p class='datos'>Domicilio:</p>
+       <p><?php echo $Domicilio; ?></p>
 
      </div>
-     <div class="col-md-4">
-       <p class="datos">Teléfono:</p>
-       <p>Lorem ipsum dolor sit amet</p>
-       <p class="datos">Correo: </p>
+     <div class='col-md-4'>
+       <p class='datos'>Teléfono:</p>
+       <p><?php echo $Telefono; ?></p>
+       <p class='datos'>Correo: </p>
        <p>Lorem ipsum dolor sit amet</p>
      </div>
 
     </div>
 
-      <button class="btn btn-custom" id="bpublicar" name="bconfig"><i class="glyphicon glyphicon-cog white" ></i>Configurar datos</button>
+      <button class='btn btn-custom' id='bpublicar' name='bconfig'><i class='glyphicon glyphicon-cog white' ></i>Configurar datos</button>
     
 </div>
 </div>
 </div>
-
 
 
 
@@ -105,7 +137,7 @@ $loginResult = $_SESSION["loginStatus"];
 require_once dirname(__FILE__).'/db_connect.php';
 
     $db = new DB_CONNECT();
-    $query =('SELECT * FROM publicacion WHERE Usuario_idUsuario=1');
+    $query =('SELECT * FROM publicacion WHERE Usuario_idUsuario='.$idUsuario);
     $result = $db->query($query);
 
 echo "    <div class='container-fluid'>
