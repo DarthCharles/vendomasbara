@@ -1,4 +1,5 @@
 <?php
+require_once dirname(__FILE__).'/db_connect.php';
 function registrado()
 {
 	//Aqui imprime los menus a los que tiene acceso el usuario
@@ -46,4 +47,44 @@ function noRegistrado()
 	echo "<button type='submit' name='enviar' class='btn btn-custom'>Iniciar sesión</button>";
 	echo"</form>";
 }
+
+function printCategorias(){
+
+	$db = new DB_CONNECT(); 
+	$consulta = "SELECT * FROM categoria";
+	$query = $db->query($consulta);
+	while ($res=mysqli_fetch_array($query)) {
+		$idCat = $res["idCategoria"];
+		$nombreCat = $res["Nombre_Categoria"];
+
+		echo "<li><a href='productos.php?idCategoria=".$idCat."'>".$nombreCat."</a></li>";
+	}
+
+
+}
+
+function categorias(){
+	$idcate = $_GET["idCategoria"];
+	$db = new DB_CONNECT(); 
+	$consulta = "SELECT * FROM categoria";
+	$query = $db->query($consulta);
+	while ($res=mysqli_fetch_array($query)) {
+		$idCat = $res["idCategoria"];
+		$nombreCat = $res["Nombre_Categoria"];
+		$a = "class='active'";
+		if ($idCat == $idcate)  {
+			echo "<li ".$a."><a href='productos.php?idCategoria=".$idCat."'>".$nombreCat."</a></li>";
+		} else {
+			echo "<li><a href='productos.php?idCategoria=".$idCat."'>".$nombreCat."</a></li>";
+		}
+
+	}
+
+}
+function loginErrMess(){
+	echo  "<div class='alert alert-danger' role='alert'>
+	<strong>¡Advertencia!</strong> Nombre de usuario o contraseña incorecta.
+</div>";
+}
+
 ?>
