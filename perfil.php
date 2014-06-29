@@ -1,6 +1,9 @@
 <?php 
+session_start();
+include ("seguridad.php");
+
 include ("libMenu.php");
-session_start(); 
+ 
 $loginResult = $_SESSION["loginStatus"];
 
 if (isset($_SESSION['idUsuario'])){
