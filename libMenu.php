@@ -5,9 +5,9 @@ function registrado()
 	//Aqui imprime los menus a los que tiene acceso el usuario
 	//registrado
 	echo "<ul class='nav navbar-nav navbar-right'>";
-	echo "<li><a href='nueva.html'>Nueva publicación</a></li>";
+	echo "<li><a href='nueva.php'>Nueva publicación</a></li>";
 	echo "<li><a href='perfil.php'>Perfil</a></li>";
-	echo "<li><a href='publicacion.html'>Cerrar sesión</a></li>";
+	echo "<li><a href='cerrar.php'>Cerrar sesión</a></li>";
 	echo " </ul>";
 
 //Esta es la barrita para hacer las busquedas

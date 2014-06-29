@@ -1,4 +1,8 @@
-
+<?php 
+include ("libMenu.php");
+session_start(); 
+$loginResult = $_SESSION["loginStatus"];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,25 +28,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-      </button>
-      <a href="index.html"><img src="img/logo.png" alt=""></a>
-  </div>
-  <div class="navbar-collapse collapse">
-     <ul class="nav navbar-nav navbar-right">
-       <li><a href="nueva.html">Nueva publicación</a></li>
-       <li><a href="perfil.html">Perfil</a></li>
-       <li><a href="#">Cerrar sesión</a></li>
-   </ul>
-   <form class="navbar-form navbar-right">
-    <div class="left-inner-addon ">
-      <i class="glyphicon glyphicon-search" id="glif"></i>
-      <input type="text" class="form-control" placeholder="Estoy buscando..."/>
-  </div>
-</form>
-</div>
-</div>
-</div>
+        </button>
+        <a href="index.php"><img src="img/logo.png" alt=""></a>
+      </div>
 
+      <div class="navbar-collapse collapse">
+
+        <?php if ($loginResult == "true") {
+         registrado();
+
+       } else {
+        noRegistrado();
+      }?>
+
+    </div>
+  </div>
+</div>
 
 
 <div class="container-fluid">
