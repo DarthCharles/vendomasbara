@@ -1,6 +1,8 @@
 <?php 
-include ("libMenu.php");
+
 session_start(); 
+include ("seguridad.php");
+include ("libMenu.php");
 $loginResult = $_SESSION["loginStatus"];
 
 //Inicializamos la variable de conexion a la BD para usarla posteriormente
