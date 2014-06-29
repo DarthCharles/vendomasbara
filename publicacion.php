@@ -119,11 +119,11 @@ if (isset($_GET['idPublicacion'])) {
        <div class="mailForm">
          <h4>Ponte en contacto con el vendedor</h4>
          <form action="" method="post" id="mycontactform"  role="form">
-          <label for="name">Tu nombre:</label><span id="errMes"></span><br />
+          <label for="name">Tu nombre:</label><span id="errMesName"></span><br />
           <input type="text" name="name" id="name" class="form-control" /><br />
-          <label for="email">Tu email:</label><span id="errMes2"></span><br />
+          <label for="email">Tu email:</label><span id="errMesEmail"></span><br />
           <input type="text" name="email" id="email" class="form-control" /><br />
-          <label for="message">Pregunta o comentario:</label><span id="errMes3"></span><br />
+          <label for="message">Pregunta o comentario:</label><span id="errMesMessage"></span><br />
           <textarea name="message" id="message" maxlength="1000" cols="18" rows="3" class="form-control" 
           ></textarea>
           <input type = "hidden" name = "correo_vendedor" value = "<?php echo $correo_Vendedor; ?>">

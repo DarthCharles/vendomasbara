@@ -3,7 +3,7 @@ session_start();
 
   if (isset($_POST['enviar'])) {
 
-    if (!file_exists("img/productos/".$_FILES["file"]["name"])) {
+    if (!file_exists("img/Productos/".$_FILES["file"]["name"])) {
       move_uploaded_file($_FILES["file"]["tmp_name"], "img/productos/".$_FILES["file"]["name"]);
     }
 

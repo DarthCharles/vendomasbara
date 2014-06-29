@@ -12,7 +12,7 @@ if (isset($_POST['enviar'])) {
 	$domicilio = $_POST['domicilio'];
 	$telefono = $_POST['telefono'];
 	$celular = $_POST['celular'];
-	$correo = $_POST['correo'];
+	$correo = $_POST['email'];
 
 	require_once dirname(__FILE__).'/db_connect.php';
 
