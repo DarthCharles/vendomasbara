@@ -144,6 +144,7 @@ h1,h2,h3,h4,h5,h6{
 #image1n{
   margin: 5px;
 }
+
 #bpublicar{
   display: block;
   margin-left: auto;
@@ -197,7 +198,7 @@ fieldset[disabled] .btn-custom.active {
 }
 
 #mensajeRegistro{
-  margin-top: 20%;
+  margin-top: 15%;
   text-align: center;
 }
 

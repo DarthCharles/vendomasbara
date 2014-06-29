@@ -3,7 +3,7 @@ session_start();
 include ("libMenu.php");
 
 $respuesta = "Hubo un error en el registro";
-
+$respuesta1 = "Intentalo de nuevo";
 if (isset($_POST['enviar'])) {
 	$usuario = $_POST['usuario'];
 	$password = $_POST['password'];
@@ -22,7 +22,7 @@ if (isset($_POST['enviar'])) {
 
 	$db->query($sql);
 	$respuesta = "Usuario registrado correctamente";
-
+	$respuesta1 = "¡Ahora puedes iniciar sesión!";
 }
 ?>
 
@@ -63,17 +63,17 @@ if (isset($_POST['enviar'])) {
 			</div>
 		</div>
 	</div>
-
+<br><br><br>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="container">
 				<div class="col-md-6" id="mensajeRegistro" >
 					<p class="lead"><?php echo $respuesta ?></p>
-					<h5>¡Ahora puedes iniciar sesión!</h5>
-					<a href="index.php">Volver a inicio</a>
+					<h5><?php echo $respuesta1  ?></h5>
+					<a href="index.php">Volver a inicio</a><br>
 				</div>
 				<div>
-					<center><img src="img/logo2.png" alt=""></center>
+					<center><img src="img/logo2.png" alt="" id="imagenwelcome"></center>
 				</div>
 
 			</div>

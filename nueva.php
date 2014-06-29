@@ -87,7 +87,7 @@ $loginResult = $_SESSION["loginStatus"];
           <?php 
           require_once dirname(__FILE__).'/db_config.php';
           $db = new DB_CONNECT();
-          $query_categorias = "SELECT * FROM categoria";
+          $query_categorias = "SELECT * FROM categoria ORDER BY idCategoria";
           $result = $db->query($query_categorias);
           
           while ($row = $result->fetch_array()) {

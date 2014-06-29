@@ -51,7 +51,7 @@ function noRegistrado()
 function printCategorias(){
 
 	$db = new DB_CONNECT(); 
-	$consulta = "SELECT * FROM categoria";
+	$consulta = "SELECT * FROM categoria ORDER BY idCategoria";
 	$query = $db->query($consulta);
 	while ($res=mysqli_fetch_array($query)) {
 		$idCat = $res["idCategoria"];
@@ -66,7 +66,7 @@ function printCategorias(){
 function categorias(){
 	$idcate = $_GET["idCategoria"];
 	$db = new DB_CONNECT(); 
-	$consulta = "SELECT * FROM categoria";
+	$consulta = "SELECT * FROM categoria ORDER BY idCategoria";
 	$query = $db->query($consulta);
 	while ($res=mysqli_fetch_array($query)) {
 		$idCat = $res["idCategoria"];
