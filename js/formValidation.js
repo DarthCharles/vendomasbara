@@ -2,9 +2,9 @@
 
 $(document).ready(function(){
 
-//en caso de que el submit clickeado sea el de publicacion.php
+//En caso de que el submit clickeado sea el de publicacion.php para registrar mensaje a enviar
 $('#bpublicar').click(function(){
-	validation = validate();
+	validation = validar_Mensaje();
 
 	if (validation == 1) {
 
@@ -15,9 +15,9 @@ $('#bpublicar').click(function(){
 	return false;
 });
 
-//en caso de que el submit clickeado sea el de registro.php
+// En caso de que el submit clickeado sea el de registro.php para registrar usuario
 $('#regUsuario').click(function(){
-	val = Validar_Registro();
+	val = validar_Registro();
 
 	if (val == 1) {
 		document.getElementById("regUsuario").submit();
@@ -25,8 +25,15 @@ $('#regUsuario').click(function(){
 	return false;
 });
 
+// En caso de que el submit clickeado sea el de nueva.php para registrar nueva publicacion
+$('#regPublicacion').click(function(){
+	val = validar_Publicacion();
 
-
+	if (val == 1) {
+		document.getElementById("regPublicacion").submit();
+	}
+	return false;
+});
 });
 
 
@@ -74,7 +81,7 @@ function vEmail(){
 	}
 };
 
-	function validate(){
+	function validar_Mensaje(){
 
 		value = vLength("name", 4, 25, "errMesName");
 		value *= vEmail();	
@@ -85,7 +92,7 @@ function vEmail(){
 		} else{ return 0};
 	};
 
-	function Validar_Registro(){
+	function validar_Registro(){
 		value = vLength("nombre", 4, 25, "errMesNombre");
 		value *= vLength("apellido", 4, 35, "errMesApellido");
 		value *= vLength("domicilio", 4, 50, "errMesDomicilio");
@@ -99,4 +106,11 @@ function vEmail(){
 		if (value == 1) {
 			return 1;
 		} else{ return 0};
+	}
+	function validar_Publicacion(){
+		value = vLength("titulo",10,50,"errMesTitulo", false);
+		value *= vLength("precio",0,50,"errMesPrecio");
+		value *= vLength("descripcion",20,65535,"errMesDescripcion", false);
+
+		if (value == 1) {return 1;}else{return 0;};
 	}
