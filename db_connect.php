@@ -40,8 +40,7 @@
 		}
 
 		public function query($sql){
-			mysqli_query($this->conn, $sql) or die ("Error".mysqli_error($this->conn));
-			$query = mysqli_query($this->conn, $sql);
+			$query = mysqli_query($this->conn, $sql) or die ("Error".mysqli_error($this->conn));
 			return $query;
 		}
 

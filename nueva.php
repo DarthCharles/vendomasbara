@@ -2,6 +2,10 @@
 include ("libMenu.php");
 session_start(); 
 $loginResult = $_SESSION["loginStatus"];
+
+//Inicializamos la variable de conexion a la BD para usarla posteriormente
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -80,25 +84,21 @@ $loginResult = $_SESSION["loginStatus"];
       <div class="form-group">
         <label for="categoria">Categoría:</label>
         <select class="form-control" name="categoria">
-          <option value="Nuevo">Accesorios para Vehículos</option>
-          <option value="Usado">Animales y Mascotas</option>
-          <option value="Usado">Arte y Antigüedades</option>
-          <option value="Usado">Bebés</option>
-          <option value="Usado">Cámaras y Accesorios</option>
-          <option value="Usado">Celulares y Telefonía</option>
-          <option value="Usado">Computación</option>
-          <option value="Usado">Consolas y Videojuegos</option>
-          <option value="Usado">Deporte y Fitness</option>
-          <option value="Usado">Electrónica, audio y video</option>
-          <option value="Usado">Hogar y Electrodomésticos</option>
-          <option value="Usado">Industrias y Oficinas</option>
-          <option value="Usado">Joyas y Relojes</option>
-          <option value="Usado">Juegos y Juguetes</option>
-          <option value="Usado">Libros, Revistas y Comics</option>
-          <option value="Usado">Música, Películas y Series</option>
-          <option value="Usado">Ropa, Bolsas y Calzado</option>
-          <option value="Usado">Salud y Belleza</option>
-          <option value="Usado">Otras Categorías</option>
+          <?php 
+          require_once dirname(__FILE__).'/db_config.php';
+          $db = new DB_CONNECT();
+          $query_categorias = "SELECT * FROM categoria";
+          $result = $db->query($query_categorias);
+          
+          while ($row = $result->fetch_array()) {
+            ?>
+
+            <option value='<?php echo $row['idCategoria']; ?>'><?php echo $row['Nombre_Categoria']; ?></option>
+
+            <?php
+          }
+          ?>
+          
         </select>
 
       </div>

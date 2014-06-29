@@ -10,7 +10,6 @@ if (isset($_GET['idPublicacion'])) {
   $idPublicacion = $_GET['idPublicacion'];
 
   $query = "SELECT u.*, p.*, c.Nombre_Categoria FROM Publicacion p INNER JOIN Categoria c on p.Categoria_idCategoria = c.idCategoria INNER JOIN Usuario u on u.idUsuario = p.Usuario_idUsuario WHERE p.idPublicacion =".$idPublicacion;
-  echo $query;
 
   require_once dirname(__FILE__).'/db_connect.php';
 
