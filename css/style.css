@@ -145,7 +145,7 @@ h1,h2,h3,h4,h5,h6{
   margin: 5px;
 }
 
-#bpublicar{
+#regPublicacion{
   display: block;
   margin-left: auto;
   margin-right: auto;  
@@ -154,6 +154,16 @@ h1,h2,h3,h4,h5,h6{
   
 }
 
+#bpublicar {
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  
+  margin-top: 15px;
+  width: 40%;
+  
+
+}
 .datos{
   font-size: 18px;
 }
