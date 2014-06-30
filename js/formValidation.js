@@ -48,7 +48,12 @@ function vLength(id, min, max, errMes, borrar) {
 		valido = false;
 	} else { 
 		if (campo.value.length<min||campo.value.length>max) {
-			document.getElementById(errMes).innerHTML = "Debe contener entre "+min+" y "+max+" letras.";
+			if (min==0) {
+				document.getElementById(errMes).innerHTML = "Debe un maximo de "+max+" letras.";
+			}else{
+				document.getElementById(errMes).innerHTML = "Debe contener entre "+min+" y "+max+" letras.";
+			}
+			
 			valido = false;
 		}else{
 			document.getElementById(errMes).innerHTML =
@@ -65,13 +70,13 @@ function vLength(id, min, max, errMes, borrar) {
 };
 
 
-function vEmail(){
+function vEmail(campo_email, errMes){
 
-	var x = document.getElementById("email").value;
+	var x = document.getElementById(campo_email).value;
 	var atpos = x.indexOf("@");
 	var dotpos = x.lastIndexOf(".");
 	if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
-		document.getElementById("errMesEmail").innerHTML =
+		document.getElementById(errMes).innerHTML =
 		"Por favor ingrese un correo válido";
 		return 0;
 	}else { 
@@ -81,9 +86,38 @@ function vEmail(){
 	}
 };
 
+function validar_extensionFile(file, errMes, limitMB, extensiones){
+	var file = document.getElementById(file);
+
+	if (!file) {
+		document.getElementById(errMes).innerHTML = "No selecciono ninguna imagen";
+		return 0;
+	}else{
+		extension_file = (file.value.substring(file.value.lastIndexOf("."))).toLowerCase();
+		valido = false;
+		if (file.files[0].size>(limitMB*1024*1024)) {
+			document.getElementById(errMes).innerHTML = "No se permiten imagenes mayores a "+limitMB+"Mb";
+			return 0;
+		};
+		for (var i =  0; i < extensiones.length; i++) {
+			if (extensiones[i]==extension_file) { 
+				valido = true;
+				break;
+			};
+		};
+		if (!valido) {
+			document.getElementById(errMes).innerHTML = "Solo se permite formato .jpg, .jpeg, .png y .gif";
+			return 0;
+		}else{
+			document.getElementById(errMes).innerHTML = "";
+			return 1;
+		}
+	}
+}
+
 	function validar_Mensaje(){
 
-		value = vLength("name", 4, 25, "errMesName");
+		value = vLength("name", 0, 25, "errMesName");
 		value *= vEmail();	
 		value *= vLength("message", 100, 10000, "errMesMessage", false);
 
@@ -93,7 +127,7 @@ function vEmail(){
 	};
 
 	function validar_Registro(){
-		value = vLength("nombre", 4, 25, "errMesNombre");
+		value = vLength("nombre", 0, 25, "errMesNombre");
 		value *= vLength("apellido", 4, 35, "errMesApellido");
 		value *= vLength("domicilio", 4, 50, "errMesDomicilio");
 		value *= vLength("telefono", 4, 10, "errMesTelefono");
@@ -108,9 +142,10 @@ function vEmail(){
 		} else{ return 0};
 	}
 	function validar_Publicacion(){
-		value = vLength("titulo",10,50,"errMesTitulo", false);
+		value = vLength("titulo", 0,50,"errMesTitulo", false);
 		value *= vLength("precio",0,50,"errMesPrecio");
 		value *= vLength("descripcion",20,65535,"errMesDescripcion", false);
+		value *= validar_extensionFile("file","errMesFile",3,new Array(".jpg",".png",".jpeg",".gif"));
 
 		if (value == 1) {return 1;}else{return 0;};
 	}

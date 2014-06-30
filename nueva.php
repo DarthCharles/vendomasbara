@@ -77,7 +77,7 @@ $loginResult = $_SESSION["loginStatus"];
         </div>
 
         <div class="form-group">
-          <label for="exampleInputFile">Imagen</label>
+          <label for="exampleInputFile">Imagen</label><span id = "errMesFile"></span>
           <input type="file" id="file" name="file">
         </div>
 
@@ -92,6 +92,8 @@ $loginResult = $_SESSION["loginStatus"];
           <div class="form-group">
             <label for="categoria">Categoría:</label>
             <select class="form-control" name="categoria">
+
+            <!-- Llenamos el select con las categorias de la base-->
               <?php 
               require_once dirname(__FILE__).'/db_config.php';
               $db = new DB_CONNECT();
