@@ -34,8 +34,39 @@ $('#regPublicacion').click(function(){
 	}
 	return false;
 });
-});
 
+// Manejo de evento exclusivo para los campos de precio
+$("#precio").keydown(function (e) {
+        // Codigos para backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 || 
+             // Codigos para home, end, flecha izquierda, flecha derecha
+             (e.keyCode >= 35 && e.keyCode <= 39)) {
+        	return;
+    }
+        // Nos aseguramos de que la tecla presionada sea un numero, en caso de no serlo la ignoramos
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+        	e.preventDefault();
+        }
+    });
+
+ 	// Codigo para previsualizar imagen
+ 	function readURL(input) {
+
+ 		if (input.files && input.files[0]) {
+ 			var reader = new FileReader();
+
+ 			reader.onload = function (e) {
+ 				$('#imagen').attr('src', e.target.result);
+ 			}
+
+ 			reader.readAsDataURL(input.files[0]);
+ 		}
+ 	}
+
+ 	$("#file").change(function(){
+ 		readURL(this);
+ 	});
+ });
 
 
 function vLength(id, min, max, errMes, borrar) {
@@ -113,51 +144,52 @@ function validar_extensionFile(file, errMes, limitMB, extensiones){
 			return 1;
 		}
 	}
+
 }
-	function validar_PasswordSim(pass, repPass, errMes){
-		pass_Uno = document.getElementById(pass);
-		pass_Dos = document.getElementById(repPass);
-		if (pass_Uno.value!=pass_Dos.value) {
-			document.getElementById(errMes).innerHTML = "Ambos password deben ser iguales";
-			pass_Dos.value = "";
-			return 0;
-		}else{
-			document.getElementById(errMes).innerHTML = "";
-			return 1;
-		}
+function validar_PasswordSim(pass, repPass, errMes){
+	pass_Uno = document.getElementById(pass);
+	pass_Dos = document.getElementById(repPass);
+	if (pass_Uno.value!=pass_Dos.value) {
+		document.getElementById(errMes).innerHTML = "Ambos password deben ser iguales";
+		pass_Dos.value = "";
+		return 0;
+	}else{
+		document.getElementById(errMes).innerHTML = "";
+		return 1;
 	}
+}
 
-	function validar_Mensaje(){
+function validar_Mensaje(){
 
-		value = vLength("name", 0, 25, "errMesName");
-		value *= vEmail("email","errMesEmail");	
-		value *= vLength("message", 100, 10000, "errMesMessage", false);
+	value = vLength("name", 0, 50, "errMesName");
+	value *= vEmail("email","errMesEmail");	
+	value *= vLength("message", 0, 65535, "errMesMessage", false);
 
-		if (value == 1) {
-			return 1;
-		} else{ return 0};
-	};
+	if (value == 1) {
+		return 1;
+	} else{ return 0};
+};
 
-	function validar_Registro(){
-		value = vLength("nombre", 0, 25, "errMesNombre");
-		value *= vLength("apellido", 4, 35, "errMesApellido");
-		value *= vLength("domicilio", 4, 50, "errMesDomicilio");
-		value *= vLength("telefono", 4, 10, "errMesTelefono");
-		value *= vLength("celular", 4, 10, "errMesCelular");
-		value *= vLength("usuario", 4, 30, "errMesUsuario");
-		value *= vLength("password", 4, 15, "errMesPassword");
-		value *= validar_PasswordSim("password","repPassword","errMesRepPassword");
-		value *= vEmail("email","errMesEmail");
+function validar_Registro(){
+	value = vLength("nombre", 0, 25, "errMesNombre");
+	value *= vLength("apellido", 4, 35, "errMesApellido");
+	value *= vLength("domicilio", 4, 50, "errMesDomicilio");
+	value *= vLength("telefono", 4, 10, "errMesTelefono");
+	value *= vLength("celular", 4, 10, "errMesCelular");
+	value *= vLength("usuario", 4, 30, "errMesUsuario");
+	value *= vLength("password", 4, 15, "errMesPassword");
+	value *= validar_PasswordSim("password","repPassword","errMesRepPassword");
+	value *= vEmail("email","errMesEmail");
 
-		if (value == 1) {
-			return 1;
-		} else{ return 0};
-	}
-	function validar_Publicacion(){
-		value = vLength("titulo", 0,50,"errMesTitulo", false);
-		value *= vLength("precio",0,50,"errMesPrecio");
-		value *= vLength("descripcion",20,65535,"errMesDescripcion", false);
-		value *= validar_extensionFile("file","errMesFile",3,new Array(".jpg",".png",".jpeg",".gif"));
+	if (value == 1) {
+		return 1;
+	} else{ return 0};
+}
+function validar_Publicacion(){
+	value = vLength("titulo", 0,50,"errMesTitulo", false);
+	value *= vLength("precio",0,50,"errMesPrecio");
+	value *= vLength("descripcion",20,65535,"errMesDescripcion", false);
+	value *= validar_extensionFile("file","errMesFile",3,new Array(".jpg",".png",".jpeg",".gif"));
 
-		if (value == 1) {return 1;}else{return 0;};
-	}
+	if (value == 1) {return 1;}else{return 0;};
+}

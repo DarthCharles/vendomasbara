@@ -3,9 +3,6 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
--- -----------------------------------------------------
 -- Schema VendoMasBara
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `VendoMasBara` ;
@@ -23,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `VendoMasBara`.`Usuario` (
   `Apellidos` VARCHAR(35) NOT NULL,
   `Usuario` VARCHAR(30) NOT NULL,
   `Password` VARCHAR(15) NOT NULL,
-  `Domicilio` VARCHAR(50) NOT NULL,
+  `Domicilio` VARCHAR(100) NOT NULL,
   `Telefono` VARCHAR(10) NOT NULL,
   `Celular` VARCHAR(10) NOT NULL,
   `Correo` VARCHAR(50) NOT NULL,

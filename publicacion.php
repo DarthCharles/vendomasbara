@@ -124,7 +124,7 @@ if (isset($_GET['idPublicacion'])) {
           <label for="email">Tu email:</label><span id="errMesEmail"></span><br />
           <input type="text" name="email" id="email" class="form-control" /><br />
           <label for="message">Pregunta o comentario:</label><span id="errMesMessage"></span><br />
-          <textarea name="message" id="message" maxlength="1000" cols="18" rows="3" class="form-control" 
+          <textarea name="message" id="message" maxlength="65535" cols="18" rows="3" class="form-control" 
           ></textarea>
           <input type = "hidden" name = "correo_vendedor" value = "<?php echo $correo_Vendedor; ?>">
           <button type="submit" class="btn btn-custom" id="bpublicar">Enviar</button>

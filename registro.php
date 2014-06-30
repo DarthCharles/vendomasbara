@@ -49,33 +49,33 @@
 				<form method="POST" id="form_Registro_usuario" action="Registro_php.php">
 					<div class="col-md-6">
 						<label>Usuario:</label><span id="errMesUsuario"></span>
-						<input type="text" name="usuario"  class="form-control" id="usuario"></br>
+						<input type="text" name="usuario"  class="form-control" id="usuario" maxlength="30"></br>
 
 						<label>Password:</label><span id="errMesPassword"></span>
-						<input type="password" name="password"  class="form-control" id="password"></br>
+						<input type="password" name="password"  class="form-control" id="password" maxlength="15"></br>
 
 						<label>Repetir Password:</label><span id="errMesRepPassword"></span>
-						<input type="password" name="repPassword"  class="form-control" id="repPassword"></br>
+						<input type="password" name="repPassword"  class="form-control" id="repPassword" maxlength="15"></br>
 
 						<label>Correo:</label><span id="errMesEmail"></span>
-						<input type="text" name="email"  class="form-control" id="email"></br>
+						<input type="text" name="email"  class="form-control" id="email" maxlength="50"></br>
 
 					</div>
 					<div class="col-md-6">
 						<label>Nombre:</label><span id="errMesNombre"></span>
-						<input type="text" name="nombre"  class="form-control" class="form-control" id="nombre"> </br>
+						<input type="text" name="nombre"  class="form-control" class="form-control" id="nombre" maxlength="25"> </br>
 
 						<label>Apellidos:</label><span id="errMesApellido"></span>
-						<input type="text" name="apellidos"  class="form-control" id="apellido"></br>
+						<input type="text" name="apellidos"  class="form-control" id="apellido" maxlength="35"></br>
 
 						<label>Domicilio:</label><span id="errMesDomicilio"></span>
-						<input type="text" name="domicilio"  class="form-control" id="domicilio"></br>
+						<input type="text" name="domicilio"  class="form-control" id="domicilio" maxlength="100"></br>
 
 						<label>Telefono:</label><span id="errMesTelefono"></span>
-						<input type="text" name="telefono"  class="form-control" id="telefono"></br>
+						<input type="text" name="telefono"  class="form-control" id="telefono" maxlength="10"></br>
 
 						<label>Celular:</label><span id="errMesCelular"></span>
-						<input type="text" name="celular"  class="form-control" id="celular"></br>
+						<input type="text" name="celular"  class="form-control" id="celular" maxlength="10"></br>
 
 
 						<input type="submit" name="enviar"  id="regUsuario" value="Registrarme"  class="btn btn-custom"> 	
