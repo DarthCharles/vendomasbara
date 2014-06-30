@@ -55,7 +55,7 @@
 						<input type="password" name="password"  class="form-control" id="password"></br>
 
 						<label>Repetir Password:</label><span id="errMesRepPassword"></span>
-						<input type="password" name="reppassword"  class="form-control" id="repPassword"></br>
+						<input type="password" name="repPassword"  class="form-control" id="repPassword"></br>
 
 						<label>Correo:</label><span id="errMesEmail"></span>
 						<input type="text" name="email"  class="form-control" id="email"></br>

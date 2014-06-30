@@ -89,7 +89,7 @@ function vEmail(campo_email, errMes){
 function validar_extensionFile(file, errMes, limitMB, extensiones){
 	var file = document.getElementById(file);
 
-	if (!file) {
+	if (!file.value) {
 		document.getElementById(errMes).innerHTML = "No selecciono ninguna imagen";
 		return 0;
 	}else{
@@ -114,6 +114,18 @@ function validar_extensionFile(file, errMes, limitMB, extensiones){
 		}
 	}
 }
+	function validar_PasswordSim(pass, repPass, errMes){
+		pass_Uno = document.getElementById(pass);
+		pass_Dos = document.getElementById(repPass);
+		if (pass_Uno.value!=pass_Dos.value) {
+			document.getElementById(errMes).innerHTML = "Ambos password deben ser iguales";
+			pass_Dos.value = "";
+			return 0;
+		}else{
+			document.getElementById(errMes).innerHTML = "";
+			return 1;
+		}
+	}
 
 	function validar_Mensaje(){
 
@@ -134,7 +146,7 @@ function validar_extensionFile(file, errMes, limitMB, extensiones){
 		value *= vLength("celular", 4, 10, "errMesCelular");
 		value *= vLength("usuario", 4, 30, "errMesUsuario");
 		value *= vLength("password", 4, 15, "errMesPassword");
-		value *= vLength("repPassword", 4, 15, "errMesRepPassword");
+		value *= validar_PasswordSim("password","repPassword","errMesRepPassword");
 		value *= vEmail("email","errMesEmail");
 
 		if (value == 1) {
