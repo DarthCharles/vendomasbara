@@ -118,7 +118,7 @@ function validar_extensionFile(file, errMes, limitMB, extensiones){
 	function validar_Mensaje(){
 
 		value = vLength("name", 0, 25, "errMesName");
-		value *= vEmail();	
+		value *= vEmail("email","errMesEmail");	
 		value *= vLength("message", 100, 10000, "errMesMessage", false);
 
 		if (value == 1) {
@@ -135,7 +135,7 @@ function validar_extensionFile(file, errMes, limitMB, extensiones){
 		value *= vLength("usuario", 4, 30, "errMesUsuario");
 		value *= vLength("password", 4, 15, "errMesPassword");
 		value *= vLength("repPassword", 4, 15, "errMesRepPassword");
-		value *= vEmail();
+		value *= vEmail("email","errMesEmail");
 
 		if (value == 1) {
 			return 1;
