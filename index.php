@@ -67,6 +67,8 @@
         <?php if ($login == "false") {
          loginErrMess();
          
+        }
+         
          $db = new DB_CONNECT(); 
 
 
