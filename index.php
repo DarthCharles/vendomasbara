@@ -86,7 +86,7 @@
             
             $resultados = mysql_query("SELECT idPublicacion FROM Publicacion ");
 	      $total_registros = mysql_num_rows($resultados); 
-	      $resultados = mysql_query("SELECT * FROM Publicacion ORDER BY fecha DESC LIMIT $inicio, $registros");	
+	      $resultados = mysql_query("SELECT * FROM Publicacion ORDER BY idPublicacion DESC LIMIT $inicio, $registros");	
 	      $total_paginas = ceil($total_registros / $registros); 		  			
 
 	if($total_registros) {
