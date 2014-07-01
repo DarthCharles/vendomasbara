@@ -66,6 +66,28 @@ $("#precio").keydown(function (e) {
  	$("#file").change(function(){
  		readURL(this);
  	});
+
+ 	// Validacion para saber si el usuario insertado en el registro existe o no en la base de datos
+ 	$('#usuario').focusout(function(){
+ 		if ($('#usuario').val()!=""&&$('#usuario').val().length>=4) {
+ 			document.getElementById("errMesUsuario").innerHTML = "";
+ 			$.ajax({
+ 				type:"POST",
+ 				url:"verificarUsuario.php",
+ 				data: "usuario="+$('#usuario').val(),
+ 				beforeSend:function(){
+ 					$('#msgVal').html('<img src="img/loading.gif" width = "10" height="10"/> <span style="color:white">verificando</span>');
+ 				},
+ 				success: function( respuesta ){
+
+ 					if (respuesta == '1') { $('#msgVal').html('<span id="valUsuario" style="color:#4BC318">Disponible</span>');}
+ 					else{$('#msgVal').html('<span id="valUsuario" style="color:red">Ya existe. Elija otro.</span>');};
+ 				}
+ 			});
+ 		}else{
+ 			$('#msgVal').html('');
+ 		}
+ 	});
  });
 
 
@@ -181,7 +203,7 @@ function validar_Registro(){
 	value *= validar_PasswordSim("password","repPassword","errMesRepPassword");
 	value *= vEmail("email","errMesEmail");
 
-	if (value == 1) {
+	if (value == 1&&(document.getElementById("valUsuario").innerHTML == "Disponible")) {
 		return 1;
 	} else{ return 0};
 }

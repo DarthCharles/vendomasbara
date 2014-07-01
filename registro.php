@@ -48,7 +48,7 @@
 				<h3>Registro de Usuario</h3>
 				<form method="POST" id="form_Registro_usuario" action="Registro_php.php">
 					<div class="col-md-6">
-						<label>Usuario:</label><span id="errMesUsuario"></span>
+						<label>Usuario:</label><span id="errMesUsuario"></span><div id="msgVal" style="display:inline-block"></div>
 						<input type="text" name="usuario"  class="form-control" id="usuario" maxlength="30"></br>
 
 						<label>Password:</label><span id="errMesPassword"></span>
