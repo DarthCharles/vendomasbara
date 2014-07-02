@@ -25,6 +25,16 @@ $('#regUsuario').click(function(){
 	return false;
 });
 
+// En caso de que el submit clickeado sea el de editardatos.php para editar usuario
+$('#modUsuario').click(function(){
+	val = validar_Editar();
+
+	if (val == 1) {
+		document.getElementById("modUsuario").submit();
+	}
+	return false;
+});
+
 // En caso de que el submit clickeado sea el de nueva.php para registrar nueva publicacion
 $('#regPublicacion').click(function(){
 	val = validar_Publicacion();
@@ -207,6 +217,22 @@ function validar_Registro(){
 		return 1;
 	} else{ return 0};
 }
+
+
+function validar_Editar(){
+	
+	value = vLength("domicilio", 4, 50, "errMesDomicilio");
+	value *= vLength("telefono", 4, 10, "errMesTelefono");
+	value *= vLength("celular", 4, 10, "errMesCelular");
+	value *= vLength("password", 4, 15, "errMesPassword");
+	value *= validar_PasswordSim("password","repPassword","errMesRepPassword");
+	value *= vEmail("email","errMesEmail");
+
+	if (value == 1) {
+		return 1;
+	} else{ return 0};
+}
+
 function validar_Publicacion(){
 	value = vLength("titulo", 0,50,"errMesTitulo", false);
 	value *= vLength("precio",0,50,"errMesPrecio");
