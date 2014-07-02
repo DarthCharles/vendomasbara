@@ -39,6 +39,7 @@ if (isset($_SESSION['idUsuario'])){
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
   <meta charset="utf-8">
   <title></title>
 
@@ -47,6 +48,23 @@ if (isset($_SESSION['idUsuario'])){
 
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
+
+  <script type="text/javascript">
+
+  function confirmacion()
+  {
+    var respuesta=confirm("¿Seguro que desea borrar esta publicación?")
+    var id=document.getElementById("botonborrar").value;
+    if (respuesta) {
+      //alert("La publicación se ha borrado")
+
+      window.location ="borrarpost.php?id="+id;
+
+    }
+
+  }
+
+  </script>
 
 </head>
 
@@ -164,25 +182,24 @@ while ($row = $result->fetch_array()) {
        <div class='container-fluid' >
        <hr  width='95%' />
             <div class='col-md-2'>
-                    <img src='http://lorempixel.com/100/100' />
+                    <img src='".$row['Imagen']."' width='100' height ='100' />
                 </div>
-                <div class='col-md-2'>
+                <div class='col-md-4'>
                     <p><strong>Título</strong></p>
                     <p>".$row['Titulo']."</p>
                 </div>
                  <div class='col-md-2'>
                     <p><strong>Precio</strong></p>
-                    <p>".$row['Precio']."</p>
+                    <p>$".$row['Precio']."</p>
                 </div>
+                
+                
                  <div class='col-md-2'>
-                    <p><strong>Descripcion</strong></p>
-                    <p>".$row['Descripcion']."</p>
+                    
+                    <a href='publicacion.php?idPublicacion=".$row["idPublicacion"]."'> Ver publicación</a>
                 </div>
-                 <div class='col-md-2'>
-                    <p><strong>Categoría</strong></p>
-                    <p>".$row['Categoria_idCategoria']."</p>
-                </div>
-                <button  name='bconfig'><i class='glyphicon glyphicon-remove' ></i>Borrar</button>
+                
+                <button  name='bconfig' id='botonborrar' onClick='confirmacion()' value=".$row['idPublicacion']."><i class='glyphicon glyphicon-remove' ></i>Borrar</button>
            </div>";
 
         }
