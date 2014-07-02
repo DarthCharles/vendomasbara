@@ -71,69 +71,23 @@
          
          $db = new DB_CONNECT(); 
 
+          $consulta = "SELECT * FROM publicacion ORDER BY idPublicacion DESC";
 
-            $registros = 6;
+          $query = $db->query($consulta);
+          while ($res=mysqli_fetch_array($query)) {
 
-            $pagina = isset($_GET["pag"]) ? $_GET["pag"] : "0";
-            
-            if (!$pagina) { 
-                  $inicio = 0; 
-                  $pagina = 1; 
-            } 
-            else { 
-                  $inicio = ($pagina - 1) * $registros; 
-            } 
-            
-            $resultados = mysql_query("SELECT idPublicacion FROM Publicacion ");
-	      $total_registros = mysql_num_rows($resultados); 
-	      $resultados = mysql_query("SELECT * FROM Publicacion ORDER BY idPublicacion DESC LIMIT $inicio, $registros");	
-	      $total_paginas = ceil($total_registros / $registros); 		  			
+            $titulo = $res["Titulo"];
+            $precio = $res["Precio"];
+            $imagen = $res["Imagen"];
+            $idPublicacion = $res["idPublicacion"];
 
-	if($total_registros) {
+            echo "<div class='col-md-4'  id='producto'>";
+            echo "<center><a href='publicacion.php?idPublicacion=".$idPublicacion."'><img src='".$res["Imagen"]."' class='img-rounded '></a></center>";
+            echo "<center><h4>".$titulo."</h4></center>";
+            echo "<center><h5>Precio: $".$precio."</h5></center>";
+            echo "</div>";
+          }
 	
-		while($res=mysql_fetch_array($resultados)) {
-			
-			$titulo = $res["Titulo"];
-                  $precio = $res["Precio"];
-                  $imagen = $res["Imagen"];
-                  $idPublicacion = $res["idPublicacion"];
-
-                  echo "<div class='col-md-4'  id='producto'>";
-                  echo "<center><a href='publicacion.php?idPublicacion=".$idPublicacion."'><img src='".$res["Imagen"]."' class='img-rounded '></a></center>";
-                  echo "<center><h4>".$titulo."</h4></center>";
-                  echo "<center><h5>Precio: $".$precio."</h5></center>";
-                  echo "</div>";
-			
-		}
-		
-	} else {
-		echo "<font color='darkgray'>(sin resultados)</font>";
-	}
-	
-	mysql_free_result($resultados);				
-	
-	if($total_registros) {
-		
-		echo "<center>";
-		
-		if(($pagina - 1) > 0) {
-			echo "<a href='index.php?pagina=".($pagina-1)."'>< Anterior</a> ";
-		}
-		
-		for ($i=1; $i<=$total_paginas; $i++){ 
-			if ($pagina == $i) 
-				echo "<b>".$pagina."</b> "; 
-			else
-				echo "<a href='index.php?pagina=$i'>$i</a> "; 
-		}
-	  
-		if(($pagina + 1)<=$total_paginas) {
-			echo " <a href='index.php?pagina=".($pagina+1)."'>Siguiente ></a>";
-		}
-		
-		echo "</center>";
-		
-	}
       ?>
 
      </div>
