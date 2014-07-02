@@ -72,10 +72,10 @@
          $db = new DB_CONNECT(); 
 
 
-            $registros = 3;
+            $registros = 6;
 
-            $pagina = $_GET["pagina"];
-
+            $pagina = isset($_GET["pag"]) ? $_GET["pag"] : "0";
+            
             if (!$pagina) { 
                   $inicio = 0; 
                   $pagina = 1; 
@@ -91,7 +91,7 @@
 
 	if($total_registros) {
 	
-		while($articulo=mysql_fetch_array($resultados)) {
+		while($res=mysql_fetch_array($resultados)) {
 			
 			$titulo = $res["Titulo"];
                   $precio = $res["Precio"];
