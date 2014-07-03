@@ -51,7 +51,7 @@ if (isset($_POST['enviar'])) {
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="index.html"><img src="img/logo.png" alt=""></a>
+				<a href="index.php"><img src="img/logo.png" alt=""></a>
 			</div>
 
 			<div class="navbar-collapse collapse">
@@ -70,10 +70,10 @@ if (isset($_POST['enviar'])) {
 				<div class="col-md-6" id="mensajeRegistro" >
 					<p class="lead"><?php echo $respuesta ?></p>
 					<h5><?php echo $respuesta1  ?></h5>
-					<a href="index.php">Volver a inicio</a><br>
+
 				</div>
 				<div>
-					<center><img src="img/logo2.png" alt="" id="imagenwelcome"></center>
+					<center><a href="index.php"><img src="img/logo2.png" alt="" id="imagenwelcome"></a></center>
 				</div>
 
 			</div>
