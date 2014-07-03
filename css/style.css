@@ -222,15 +222,28 @@ fieldset[disabled] .btn-custom.active {
 
 #producto {
   height: 290px;
+  
 
 }
 
+#paginador a{
+  background-color: #6414A2;
+  color: #ffffff;
+  border: 1px solid #56118b;
+}
+
+#pagActive a{
+  background-color: #56118b;
+  color: #ffffff;
+
+  border: 1px solid #56118b;
+}
 #producto img {
-    display: block;
-    max-width:270px;
-    max-height:200px;
-    width: auto;
-    height: auto;
+  display: block;
+  max-width:270px;
+  max-height:200px;
+  width: auto;
+  height: auto;
 
 }
 
