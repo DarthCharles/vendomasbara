@@ -54,7 +54,7 @@ include ("libMenu.php");
 			<div class="container">
 			<div class = "for">
 			<div class = "mailForm">
-				<h3>Registro de Usuario</h3>
+				<h3>Editar datos de usuario</h3>
 				<form method="POST" id="form_Editar_usuario" action="editardatos_php.php">
 					<div class="col-md-6">
 						
