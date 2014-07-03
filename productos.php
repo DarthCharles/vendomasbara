@@ -66,7 +66,7 @@
           <?php 
           $idcate = $_GET["idCategoria"];
           $db = new DB_CONNECT(); 
-          $consulta = "SELECT * FROM publicacion WHERE Categoria_idCategoria=".$idcate;
+          $consulta = "SELECT * FROM Publicacion WHERE Categoria_idCategoria=".$idcate;
 
           $query = $db->query($consulta);
           while ($res=mysqli_fetch_array($query)) {

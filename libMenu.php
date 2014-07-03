@@ -53,7 +53,7 @@ function noRegistrado()
 function printCategorias(){
 
 	$db = new DB_CONNECT(); 
-	$consulta = "SELECT * FROM categoria ORDER BY idCategoria";
+	$consulta = "SELECT * FROM Categoria ORDER BY idCategoria";
 	$query = $db->query($consulta);
 	while ($res=mysqli_fetch_array($query)) {
 		$idCat = $res["idCategoria"];

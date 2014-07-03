@@ -1,4 +1,4 @@
-<?php
+I<?php
 require_once dirname(__FILE__).'/db_connect.php';
 
 session_start();
@@ -9,7 +9,7 @@ $pass = $_POST["password"];
 
 $db = new DB_CONNECT(); 
 
-$consulta = "SELECT * FROM usuario WHERE Usuario='".$user."' and Password='".$pass."'";
+$consulta = "SELECT * FROM Usuario WHERE Usuario='".$user."' and Password='".$pass."'";
 
 
 $query = $db->query($consulta);
