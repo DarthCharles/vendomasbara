@@ -69,6 +69,7 @@
         if ($login == "false") {
          loginErrMess();
          
+<<<<<<< HEAD
         }             
             $registros = 6;
 
@@ -152,6 +153,29 @@
     echo"</div>";
     
   }
+=======
+        }
+         
+         $db = new DB_CONNECT(); 
+
+          $consulta = "SELECT * FROM publicacion ORDER BY idPublicacion DESC";
+
+          $query = $db->query($consulta);
+          while ($res=mysqli_fetch_array($query)) {
+
+            $titulo = $res["Titulo"];
+            $precio = $res["Precio"];
+            $imagen = $res["Imagen"];
+            $idPublicacion = $res["idPublicacion"];
+
+            echo "<div class='col-md-4'  id='producto'>";
+            echo "<center><a href='publicacion.php?idPublicacion=".$idPublicacion."'><img src='".$res["Imagen"]."' class='img-rounded '></a></center>";
+            echo "<center><h4>".$titulo."</h4></center>";
+            echo "<center><h5>Precio: $".$precio."</h5></center>";
+            echo "</div>";
+          }
+	
+>>>>>>> origin/master
       ?>
 
      </div>

@@ -27,7 +27,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="index.html"><img src="img/logo.png" alt=""></a>
+				<a href="index.php"><img src="img/logo.png" alt=""></a>
 			</div>
 
 			<div class="navbar-collapse collapse">

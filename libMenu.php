@@ -11,6 +11,7 @@ function registrado()
 	echo " </ul>";
 
 //Esta es la barrita para hacer las busquedas
+	/*
 	echo "<form class='navbar-form navbar-right' role='form' method='POST' action='getLogin.php'>";
 	echo "<div class='form-group'>";
 	echo "<div class='left-inner-addon'>";
@@ -19,6 +20,7 @@ function registrado()
 	echo "</div>";
 	echo "</div>";               
 	echo"</form>";
+	*/
 }
 
 
