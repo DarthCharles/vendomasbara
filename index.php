@@ -174,8 +174,7 @@
             echo "<center><h5>Precio: $".$precio."</h5></center>";
             echo "</div>";
           }
-	
->>>>>>> origin/master
+
       ?>
 
      </div>
