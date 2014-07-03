@@ -69,7 +69,7 @@
         if ($login == "false") {
          loginErrMess();
          
-<<<<<<< HEAD
+
         }             
             $registros = 6;
 
@@ -153,7 +153,7 @@
     echo"</div>";
     
   }
-=======
+
         }
          
          $db = new DB_CONNECT(); 
