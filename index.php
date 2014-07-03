@@ -9,6 +9,7 @@
       } elseif (isset($_GET['login'])) {
        $login= $_GET['login'];
      }
+
      ?>
 
      <!DOCTYPE html>
@@ -64,19 +65,22 @@
 
        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" >
 
-        <?php if ($login == "false") {
+        <?php 
+        if ($login == "false") {
          loginErrMess();
          
-        }
-         
-         $db = new DB_CONNECT(); 
-
-
+        }             
             $registros = 6;
 
-            $pagina = isset($_GET["pag"]) ? $_GET["pag"] : "0";
+            if(isset($_GET["pagina"])){
+              $pagina = $_GET["pagina"];
+            }else{
+              $pagina=0;
+            }
+
             
-            if (!$pagina) { 
+            
+            if ($pagina==0) { 
                   $inicio = 0; 
                   $pagina = 1; 
             } 
@@ -84,56 +88,70 @@
                   $inicio = ($pagina - 1) * $registros; 
             } 
             
-            $resultados = mysql_query("SELECT idPublicacion FROM Publicacion ");
-	      $total_registros = mysql_num_rows($resultados); 
-	      $resultados = mysql_query("SELECT * FROM Publicacion ORDER BY idPublicacion DESC LIMIT $inicio, $registros");	
-	      $total_paginas = ceil($total_registros / $registros); 		  			
 
-	if($total_registros) {
-	
-		while($res=mysql_fetch_array($resultados)) {
-			
-			$titulo = $res["Titulo"];
+             $db = new DB_CONNECT(); 
+             $query=("SELECT * FROM Publicacion ORDER BY idPublicacion DESC LIMIT ".$inicio.",".$registros);            
+             $resultados = $db->query($query);
+
+             $query2=("SELECT COUNT(*) AS num FROM Publicacion");
+
+        $data = $db->query($query2); 
+
+        $row=mysqli_fetch_assoc($data);
+        $total_registros=$row['num'];
+
+        
+
+        $total_paginas = ceil($total_registros / $registros);             
+
+  if($total_registros) {
+  
+    while($res=mysqli_fetch_array($resultados)) {
+      
+      $titulo = $res["Titulo"];
                   $precio = $res["Precio"];
                   $imagen = $res["Imagen"];
+                 
                   $idPublicacion = $res["idPublicacion"];
 
                   echo "<div class='col-md-4'  id='producto'>";
-                  echo "<center><a href='publicacion.php?idPublicacion=".$idPublicacion."'><img src='".$res["Imagen"]."' class='img-rounded '></a></center>";
+                  echo "<center><a href='publicacion.php?idPublicacion=".$idPublicacion."'><img src='".$imagen."' class='img-rounded '></a></center>";
                   echo "<center><h4>".$titulo."</h4></center>";
                   echo "<center><h5>Precio: $".$precio."</h5></center>";
                   echo "</div>";
-			
-		}
-		
-	} else {
-		echo "<font color='darkgray'>(sin resultados)</font>";
-	}
-	
-	mysql_free_result($resultados);				
-	
-	if($total_registros) {
-		
-		echo "<center>";
-		
-		if(($pagina - 1) > 0) {
-			echo "<a href='index.php?pagina=".($pagina-1)."'>< Anterior</a> ";
-		}
-		
-		for ($i=1; $i<=$total_paginas; $i++){ 
-			if ($pagina == $i) 
-				echo "<b>".$pagina."</b> "; 
-			else
-				echo "<a href='index.php?pagina=$i'>$i</a> "; 
-		}
-	  
-		if(($pagina + 1)<=$total_paginas) {
-			echo " <a href='index.php?pagina=".($pagina+1)."'>Siguiente ></a>";
-		}
-		
-		echo "</center>";
-		
-	}
+      
+    }
+    
+  } else {
+    echo "<font color='darkgray'>(sin resultados)</font>";
+  }
+   
+   echo "<div class='col-md-12'>";
+  mysqli_free_result($resultados);        
+  
+  if($total_registros) {
+    
+    echo "<center>";
+    
+    if(($pagina - 1) > 0) {
+      echo "<a href='index.php?pagina=".($pagina-1)."'>< Anterior</a> ";
+    }
+    
+    for ($i=1; $i<=$total_paginas; $i++){ 
+      if ($pagina == $i) 
+        echo "<b>".$pagina."</b> "; 
+      else
+        echo "<a href='index.php?pagina=$i'>$i</a> "; 
+    }
+    
+    if(($pagina + 1)<=$total_paginas) {
+      echo " <a href='index.php?pagina=".($pagina+1)."'>Siguiente ></a>";
+    }
+    
+    echo "</center>";
+    echo"</div>";
+    
+  }
       ?>
 
      </div>
